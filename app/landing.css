@@ -1,0 +1,49 @@
+/* ============================================================
+   LANDING PAGE — Variables CSS scopées à Talentix Landing
+   Ces variables ne s'appliquent qu'aux éléments enfants de
+   .landing-root et n'écrasent pas le thème dashboard.
+   ============================================================ */
+
+.landing-root {
+  /* Palette principale */
+  --landing-bg: #FEFBF9;           /* beige chaud du fond */
+  --landing-navbar-bg: #FFFFFF;    /* fond navbar blanc */
+  --landing-dark: #393936;         /* noir input / texte fort */
+  --landing-accent: #EBFDB7;       /* vert lime boutons */
+  --landing-accent-hover: #d9f5a0; /* vert un cran plus foncé au hover */
+  --landing-tag-bg: #FF5C35;       /* orange du tag "Logiciel de recrutement" */
+  --landing-tag-text: #FFFFFF;
+  --landing-body-text: #4A4A45;    /* gris foncé pour le body */
+  --landing-muted: #9A9A94;        /* texte tertiaire */
+  --landing-border: #E8E4DF;       /* bordures subtiles */
+  --landing-button-border: #000000; /* bordure boutons */
+  --landing-bg-secondary: #F9F2EC;
+  --landing-bg-tertiary: #C7E4FC;
+
+
+
+  --landing-card-bg-red: #FE8A6A;   /* Orange doux pour l'ancienne méthode */
+  --landing-card-bg-green: #EBFDB7;    /* Vert lime pour Talentix */
+  --landing-card-bg-blue: #C7E4FC;    /* Bleu doux pour la méthode Talentix */
+  --landing-card-bg-green2: #CEF4F0;
+  --landing-card-text: #393936;
+  /* Typographie */
+  /* --landing-font-display: 'Inter', system-ui, sans-serif;
+  --landing-font-body: 'Inter', system-ui, sans-serif; */
+
+  /* Espacements */
+  --landing-navbar-h: 72px;
+  --landing-max-w: 1200px;
+
+  /* Reset du background pour toute la landing */
+  background-color: var(--landing-bg);
+  color: var(--landing-dark);
+ font-family: var(--font-body);
+}
+
+.landing-root h1,
+.landing-root h2,
+.landing-root h3,
+.landing-root h4 {
+  font-family: var(--font-heading);
+}

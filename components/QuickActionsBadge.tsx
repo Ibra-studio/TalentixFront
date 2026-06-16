@@ -16,7 +16,7 @@ export function QuickActions() {
       <DropdownMenuTrigger asChild>
         <Button
           size="icon"
-          className="h-8 w-8 rounded-lg text-sidebar-primary hover:bg-muted active:bg-primary"
+          className="h-8 w-8 rounded-lg hover:bg-muted active:bg-primary"
           aria-label="Quick actions"
           variant={"ghost"}
         >
