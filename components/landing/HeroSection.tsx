@@ -33,7 +33,7 @@ export default function HeroSection() {
         <h1
           className="font-bold leading-[1.15] tracking-tight w-full"
           style={{
-            fontSize: "clamp(2.2rem, 5.5vw, 3.75rem)",
+            fontSize: "clamp(2rem, 5.5vw, 3.75rem)",
             color: "var(--landing-dark)",
           }}
         >
@@ -54,7 +54,7 @@ export default function HeroSection() {
 
         {/* Description */}
         <p
-          className="text-lg leading-relaxed max-w-4xl"
+          className="text-sm md:text-lg leading-relaxed max-w-4xl"
           style={{ color: "var(--landing-body-text)" }}
         >
           Talentix africa est le #1 logiciel de recrutement en Afrique francophone dedié uniquement au recrutement .

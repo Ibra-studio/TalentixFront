@@ -85,15 +85,15 @@ const scrollByAmount = (direction: 'left' | 'right') => {
   };
 
   return (
-    <section aria-label="Section pour les fonctionnalitées" className="flex flex-col justify-start items-start py-20 px-4 md:px-12 lg:px-[150px] overflow-hidden">
+    <section aria-label="Section pour les fonctionnalitées" className="flex flex-col justify-start items-start py-20 px-6 md:px-12 lg:px-[150px] overflow-hidden">
       
       {/* HEADER : Titre centré, Boutons à droite */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end w-full mb-12 gap-8">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-end w-full mb-12 gap-8">
         
         <h2 
           className="font-semibold leading-tight text-center"
           style={{
-            fontSize: "clamp(2rem, 4vw + 1rem, 2.5rem)",
+            fontSize: "clamp(1.5rem, 4vw + 1rem, 2.5rem)",
             color: "var(--landing-dark)",
           }}
         >
@@ -144,7 +144,7 @@ const scrollByAmount = (direction: 'left' | 'right') => {
       <div 
         ref={scrollContainerRef}
         onScroll={checkScroll}
-        className="flex w-full gap-8 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 scroll-smooth"
+        className="flex w-full gap-2 md:gap-8  overflow-x-auto snap-x snap-mandatory pb-8 pt-4 scroll-smooth"
         // Le CSS en ligne ci-dessous permet de masquer la barre de défilement (scrollbar) moche
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} 
       >
@@ -162,7 +162,7 @@ const scrollByAmount = (direction: 'left' | 'right') => {
   >
     {/* ZONE IMAGE (Haut) */}
     {/* Changement : h-48 ou h-56 pour limiter la place prise par l'image */}
-    <div className="w-full h-80 rounded-2xl flex items-center justify-center mb-6 overflow-hidden">
+    <div className="w-full  h-100 md:h-80 rounded-2xl flex items-center justify-center mb-6 overflow-hidden">
       <Image 
         src={feature.imageSrc} 
         alt={feature.title} 
@@ -174,13 +174,13 @@ const scrollByAmount = (direction: 'left' | 'right') => {
 
     {/* ZONE TEXTE (Bas) */}
     <div>
-      <h3 className="text-xl font-bold mb-1 text-[var(--landing-dark)]">
+      <h3 className="text-xl font-bold mb-1 text-(--landing-dark)">
         {feature.title}
       </h3>
-      <p className="font-semibold text-md text-[var(--landing-dark)] mb-2">
+      <p className="font-semibold text-md text-(--landing-dark) mb-2">
         {feature.subtitle}
       </p>
-      <p className="text-[var(--landing-dark)]/80 leading-relaxed text-sm">
+      <p className="text-(--landing-dark)/80 leading-relaxed text-sm">
         {feature.description}
       </p>
     </div>

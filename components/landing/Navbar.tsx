@@ -81,8 +81,8 @@ export default function Navbar() {
           className={cn(
             "relative w-full transition-all duration-300",
             scrolled && !overlayActive
-              ? "max-w-[1100px] rounded-[50px] bg-white/95 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.10)] border border-[var(--landing-border)]"
-              : "max-w-[1230px] bg-white border-b border-[var(--landing-border)]"
+              ? "max-w-[1100px] rounded-[50px] bg-white/95 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.10)] border border-(--landing-border)"
+              : "max-w-[1230px] bg-white border-b border-(--landing-border)"
           )}
         >
           {/* Barre principale */}
@@ -114,8 +114,8 @@ export default function Navbar() {
                     className={cn(
                       "flex items-center gap-1 text-sm font-medium px-3 py-2 rounded-lg transition-colors duration-150",
                       solutionsOpen
-                        ? "bg-gray-100 text-[var(--landing-dark)]"
-                        : "hover:bg-gray-50 text-[var(--landing-body-text)]"
+                        ? "bg-gray-100 text-(--landing-dark)"
+                        : "hover:bg-gray-50 text-(--landing-body-text)"
                     )}
                     aria-expanded={solutionsOpen}
                     aria-haspopup="true"

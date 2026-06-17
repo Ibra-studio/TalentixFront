@@ -23,14 +23,14 @@ export default function MethodSection() {
   return (
     <section
       aria-label="Comparaison des méthodes de recrutement"
-      className="flex flex-col items-center justify-start text-center min-h-200 py-[75px] px-4 overflow-hidden"
+      className="flex flex-col items-center justify-start text-center min-h-200 py-[75px] px-6 overflow-hidden"
       style={{ backgroundColor: "var(--landing-bg-secondary)" }}
     >
       {/* Titre principal fluide */}
       <h2 
         className="font-semibold leading-tight mb-16"
         style={{
-          fontSize: "clamp(2rem, 4vw + 1rem, 2.5rem)",
+          fontSize: "clamp(1.5rem, 4vw + 1rem, 2.5rem)",
           color: "var(--landing-dark)",
         }}
       >

@@ -12,6 +12,9 @@ import MethodSection from "@/components/landing/MethodSection";
 import FeatureSection from "@/components/landing/FeaturesSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import WhyUsSection from "@/components/landing/WhyUsSection";
+import StatisticsSection from "@/components/landing/StatisticsSection";
+import OverviewSection from "@/components/landing/OverviewSection";
+import FAQSection from "@/components/landing/FAQSection";
 // ─── METADATA (SEO) ─────────────────────────────────────────
 // Next.js App Router : exporter `metadata` depuis un page.tsx
 // génère automatiquement les balises <head> correctes.
@@ -168,6 +171,9 @@ export default function LandingPage() {
           <MethodSection/>
           <FeaturesSection/>
           <WhyUsSection/>
+          <StatisticsSection/>
+          <OverviewSection/>
+          <FAQSection/>
           {/* Les prochaines sections viendront ici : */}
           {/* <SocialProofSection /> */}
           {/* <FeaturesSection />    */}

@@ -2,10 +2,10 @@ export default function WhyUsSection() {
   return (
     <section 
       aria-label="Section pourquoi nous ?" 
-      className="w-full px-37.5 flex justify-center items-center"
+      className="w-full  px-6 md:px-12 lg:px-[150px]  flex justify-center items-center"
    
     >
-      {/* Conteneur principal arrondi avec la couleur de fond bleue */}
+    
       <div 
         className="w-full  flex flex-col items-center text-center p-12 md:p-20 rounded-[40px]"
         style={{ backgroundColor: "var(--landing-bg-tertiary)" }}
@@ -14,7 +14,7 @@ export default function WhyUsSection() {
           Pourquoi choisir Talentix africa ?
         </p>
         
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 text-(--landing-dark) leading-tight">
+        <h2 className="text-2xl md:text-5xl font-bold mb-8 text-(--landing-dark) leading-tight">
           Un logiciel de recrutement complet,<br /> 
           flexible et conforme RGPD
         </h2>
