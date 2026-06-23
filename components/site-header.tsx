@@ -12,12 +12,9 @@ import { SearchBar } from "./SearchBar"
 import { QuickActions } from "./QuickActionsBadge"
 import { Sheet, SheetTrigger } from "./ui/sheet"
 import { GetStartedSheetContent } from "./GetStartedSheet"
-// ─────────────────────────────────────────────
-// Subscription / Trial badge  → remplace par <Sheet> quand prêt
-// ─────────────────────────────────────────────
+
 function SubscriptionBadge() {
   return (
-    // TODO: remplacer ce Button par un SheetTrigger + Sheet de shadcn
     <Button
       variant="outline"
       size="sm"
@@ -29,37 +26,16 @@ function SubscriptionBadge() {
   )
 }
 
-// ─────────────────────────────────────────────
-// Search placeholder → remplace par <CommandDialog> quand prêt
-// ─────────────────────────────────────────────
 
-// ─────────────────────────────────────────────
-// Quick Actions  (+)
-// ─────────────────────────────────────────────
-
-// ─────────────────────────────────────────────
-// Notifications
-// ─────────────────────────────────────────────
-
-
-// ─────────────────────────────────────────────
-// Profile menu
-// ─────────────────────────────────────────────
-
-// ─────────────────────────────────────────────
-// SiteHeader  (assemblage)
-// ─────────────────────────────────────────────
 export function SiteHeader() {
   return (
-    <header className="flex h-(--header-height) shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)">
-      <div className="flex w-full items-center   gap-2 px-4 lg:gap-2 lg:px-6">
+    <header className="sticky top-0 z-50 w-full flex h-(--header-height) shrink-0 items-center gap-2 border-b border-border/100 bg-background/95 backdrop-blur transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)">
+      <div className="flex w-full items-center gap-2 px-4 lg:gap-2 lg:px-6">
 
         {/* Left – sidebar toggle + trial */}
-        
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mx-1 data-[orientation=vertical]:h-4" />
         <SubscriptionBadge />
-        
 
         {/* Center – search */}
         <div className="flex-1 flex justify-center">

@@ -51,3 +51,75 @@ export function CheckIcon({ size = 24, color = "currentColor", className = "" }:
 
     )
 }
+export function GoogleCalendar({ size = 24, color = "currentColor", className = "" }: { size?: number; color?: string; className?: string }) {
+    return (
+       <svg data-name="Layer 1" height="32" id="Layer_1" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M22,4.5v6H10v11H4V6.5a2.0059,2.0059,0,0,1,2-2Z" fill="#4285f4"/><polygon fill="#ea4435" points="22 27.5 22 21.5 28 21.5 22 27.5"/><rect fill="#ffba00" height="12" width="6" x="22" y="9.5"/><rect fill="#00ac47" height="12" transform="translate(40.5 8.5) rotate(90)" width="6" x="13" y="18.5"/><path d="M28,6.5v4H22v-6h4A2.0059,2.0059,0,0,1,28,6.5Z" fill="#0066da"/><path d="M10,21.5v6H6a2.0059,2.0059,0,0,1-2-2v-4Z" fill="#188038"/><path d="M15.69,17.09c0,.89-.66,1.79-2.15,1.79a3.0026,3.0026,0,0,1-1.52-.39l-.08-.06.29-.82.13.08a2.3554,2.3554,0,0,0,1.17.34,1.191,1.191,0,0,0,.88-.31.8586.8586,0,0,0,.25-.65c-.01-.73-.68-.99-1.31-.99h-.54v-.81h.54c.45,0,1.12-.22,1.12-.82,0-.45-.31-.71-.85-.71a1.8865,1.8865,0,0,0-1.04.34l-.14.1-.28-.79.07-.06a2.834,2.834,0,0,1,1.53-.45c1.19,0,1.72.73,1.72,1.45a1.4369,1.4369,0,0,1-.81,1.3A1.52,1.52,0,0,1,15.69,17.09Z" fill="#4285f4"/><polygon fill="#4285f4" points="18.71 12.98 18.71 18.79 17.73 18.79 17.73 14 16.79 14.51 16.58 13.69 17.95 12.98 18.71 12.98"/></svg>
+
+    )
+}
+import React from "react";
+
+interface OutlookIconProps {
+  size?: number;
+  color?: string; // Conservé pour la signature, bien que le logo utilise ses couleurs de marque officielles
+  className?: string;
+}
+
+export function Outlook({ size = 24, className = "" }: OutlookIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 128 128"
+      width={size}
+      height={size}
+      className={className}
+      enableBackground="new 0 0 128 128"
+      xmlSpace="preserve"
+    >
+      <g>
+        <path
+          fill="#0464B8"
+          d="M120.2,22.8H34.2V9.1C34.2,6.8,36,5,38.2,5h77.9c2.3,0,4.1,1.8,4.1,4.1V22.8z"
+        />
+        <rect fill="#0377D4" height="26.6" width="28.7" x="34.2" y="22.8" />
+        <rect fill="#29A7EB" height="26.6" width="28.7" x="62.9" y="22.8" />
+        <rect fill="#4FD8FF" height="26.6" width="28.7" x="91.6" y="22.8" />
+        <rect fill="#1681D7" height="26.6" width="28.7" x="34.2" y="49.4" />
+        <rect fill="#0178D4" height="26.6" width="28.7" x="62.9" y="49.4" />
+        <rect fill="#29A7EB" height="26.6" width="28.7" x="91.6" y="49.4" />
+        <rect fill="#0464B8" height="26.6" width="28.7" x="62.9" y="75.9" />
+        <rect fill="#1681D7" height="26.6" width="28.7" x="91.6" y="75.9" />
+      </g>
+      <path
+        fill="#042071"
+        d="M126.9,69.1l-6.6,3.9V61.8l6.5,3.6C128.3,66.1,128.3,68.2,126.9,69.1z"
+      />
+      <path
+        fill="#168FDE"
+        d="M126.9,69.1l-0.6,0.4l0,0l-0.7,0.4l-5.3,3.1v-0.1l-88.4,50.6h89.1c3.8,0,6.8-3.1,6.8-6.8l0.1-49.4 C128,67.9,127.6,68.7,126.9,69.1z"
+      />
+      <g>
+        <path
+          fill="#29A7EB"
+          d="M122,123.5H32.8c-3.8,0-6.8-3.1-6.8-6.8V68.5L122,123.5z"
+        />
+      </g>
+      <path
+        fill="#1681D7"
+        d="M59,96.5h-53c-3.5,0-6.4-2.9-6.4-6.4V37.9c0-3.5,2.9-6.4,6.4-6.4h53c3.5,0,6.4,2.9,6.4,6.4v52.2 C65.4,93.6,62.6,96.5,59,96.5z"
+      />
+      <g>
+        <path
+          fill="#FFFFFF"
+          d="M32.5,82.9c-10.3,0-16.8-7.8-16.8-18.2c0-11,7.1-18.8,17.3-18.8c10.6,0,16.8,7.9,16.8,18.1 C49.9,76.1,42.5,82.9,32.5,82.9L32.5,82.9z M32.9,77.7c6.4,0,10-5.9,10-13.4c0-6.8-3.4-13.1-10-13.1s-10.1,6.2-10.1,13.4 S26.4,77.7,32.9,77.7L32.9,77.7z"
+        />
+      </g>
+      <path
+        fill="black"
+        opacity={0.2}
+        d="M65.5,37.3c0,0.2,0,0.4,0,0.6v52.2c0,3.5-2.9,6.4-6.4,6.4H26v5.7h38.4c3.5,0,6.4-2.9,6.4-6.4V43.6 C70.8,40.4,68.5,37.7,65.5,37.3z"
+      />
+    </svg>
+  );
+
+}

@@ -215,7 +215,7 @@ function CircleProgress({ pct }: { pct: number }) {
           stroke="currentColor" strokeWidth="4" fill="none"
           strokeDasharray={circ} strokeDashoffset={offset}
           strokeLinecap="round"
-          className="text-violet-500 transition-all duration-500"
+          className="text-guide transition-all duration-500"
         />
       </svg>
       <span className="absolute text-xs font-semibold text-foreground">{pct}%</span>
@@ -230,7 +230,7 @@ function SectionBadge({ section }: { section: Section }) {
 
   if (done === total) {
     return (
-      <div className="flex size-9 items-center justify-center rounded-full bg-violet-500/20 text-violet-500">
+      <div className="flex size-9 items-center justify-center rounded-full bg-guide/10 text-guide">
         {section.icon}
       </div>
     )
@@ -238,7 +238,7 @@ function SectionBadge({ section }: { section: Section }) {
 
   if (done === 0) {
     return (
-      <div className="flex size-9 items-center justify-center rounded-full border border-violet-500/40 text-violet-400">
+      <div className="flex size-9 items-center justify-center rounded-full border border-guide/30 text-guide/70">
         {section.icon}
       </div>
     )
@@ -257,10 +257,10 @@ function SectionBadge({ section }: { section: Section }) {
           stroke="currentColor" strokeWidth="2.5" fill="none"
           strokeDasharray={circ} strokeDashoffset={offset}
           strokeLinecap="round"
-          className="text-violet-500"
+          className="text-guide"
         />
       </svg>
-      <span className="relative z-10 text-[10px] font-bold text-violet-400">{done}/{total}</span>
+      <span className="relative z-10 text-[10px] font-bold text-guide/90">{done}/{total}</span>
     </div>
   )
 }
@@ -287,7 +287,7 @@ function StepItem({
         step.done
           ? "border-border/40 bg-muted/20"
           : isActive
-          ? "border-violet-500/30 bg-muted/40"
+          ? "border-guide/40 bg-muted/40"
           : "border-border/40 bg-muted/10 cursor-pointer hover:bg-muted/30",
       )}
       onClick={() => !step.done && !isActive && onActivate()}
@@ -314,11 +314,10 @@ function StepItem({
           )}
           <div className="flex items-center gap-2">
             {step.tourRoute && (
-              // SheetClose ferme le sheet avant la navigation
               <SheetClose asChild>
                 <Button
                   size="sm"
-                  className="h-7 bg-violet-600 text-white hover:bg-violet-700"
+                  className="h-7 bg-guide text-guide-foreground hover:opacity-90 transition-opacity"
                   onClick={(e) => { e.stopPropagation(); onShowMe() }}
                 >
                   Montrer
@@ -424,17 +423,17 @@ export function GetStartedSheetContent({ userName = "Ibrahim" }: { userName?: st
   return (
     <SheetContent side="right" className="flex w-full max-w-sm flex-col gap-0 p-0 sm:max-w-sm">
 
-      {/* Header violet */}
-      <SheetHeader className="flex-row items-center gap-3 bg-violet-700 px-4 py-3">
-        <Rocket className="size-4 text-white/80" />
-        <SheetTitle className="text-sm font-semibold text-white">
+      {/* Header aligné sur l'identité sémantique */}
+      <SheetHeader className="flex-row items-center gap-3 bg-guide px-4 py-3">
+        <Rocket className="size-4 text-guide-foreground/80" />
+        <SheetTitle className="text-sm font-semibold text-guide-foreground">
           Prise en main
         </SheetTitle>
         <SheetClose asChild>
           <Button
             size="icon"
             variant="ghost"
-            className="ml-auto size-6 text-white/70 hover:text-white hover:bg-white/10"
+            className="ml-auto size-6 text-guide-foreground/70 hover:text-guide-foreground hover:bg-guide-foreground/10"
           >
             <X className="size-3.5" />
           </Button>

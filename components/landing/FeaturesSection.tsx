@@ -162,7 +162,7 @@ const scrollByAmount = (direction: 'left' | 'right') => {
   >
     {/* ZONE IMAGE (Haut) */}
     {/* Changement : h-48 ou h-56 pour limiter la place prise par l'image */}
-    <div className="w-full  h-100 md:h-80 rounded-2xl flex items-center justify-center mb-6 overflow-hidden">
+    <div className="w-full  md:h-80 rounded-2xl flex items-center justify-center mb-6 overflow-hidden">
       <Image 
         src={feature.imageSrc} 
         alt={feature.title} 
