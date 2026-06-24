@@ -30,16 +30,18 @@ export default function Page() {
               </p>
             </div>
 
+
+           {/* TODO: AJouter la fonctionnalite pour reorganiser les widgets par glisser-déposer (drag and drop) pour une personnalisation avancée du tableau de bord. */}
             {/* Widget Calendrier & Bannière de connexion */}
             <CalendarWidget />
 
-            {/* Graphique analytique d'acquisition */}
+            {/* Widget Graphique analytique d'acquisition */}
             <CandidateChart />
 
-            {/* Grille : Nouveaux Candidats & Retards de traitement */}
+            {/* widget Grille : Nouveaux Candidats & Retards de traitement */}
             <CandidateLists />
 
-            {/* Grille : Offres d'emploi & Tags/Sources */}
+            {/* widget Grille : Offres d'emploi & Tags/Sources */}
             <JobsTags />
 
             {/* Pied de page informatif et onboarding */}
