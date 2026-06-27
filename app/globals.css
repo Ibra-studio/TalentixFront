@@ -33,7 +33,7 @@
     --sidebar-primary: oklch(0.33 0.003 70);
     --sidebar-primary-foreground: oklch(1 0 0);
     --sidebar-accent: oklch(0.95 0.003 70);
-    --sidebar-accent-foreground: oklch(0.33 0.003 70);
+    --sidebar-accent-foreground: oklch(0.85 0.12 185);
     --sidebar-border: oklch(0.92 0.003 70);
     --sidebar-ring: oklch(0.33 0.003 70);
     
@@ -47,7 +47,7 @@
 
 
     /* --- NOUVELLE COULEUR MARQUE TALENTIX (#CEF4F0) --- */
-    --brand: oklch(0.941 0.031 184.84);
+    --brand:oklch(0.35 0.04 185);
     --brand-foreground: oklch(0.25 0.02 185);
 }
 

@@ -60,7 +60,7 @@ export function CandidateLists() {
               <div key={c.id} className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-8 w-8 shrink-0">
-                    <AvatarFallback className="bg-brand  text-xs font-bold">
+                    <AvatarFallback className="bg-brand  text-xs font-bold  text-sidebar-accent-foreground">
                       {c.name[0]}
                     </AvatarFallback>
                   </Avatar>
@@ -111,7 +111,7 @@ export function CandidateLists() {
               <div key={c.id} className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-8 w-8 shrink-0">
-                    <AvatarFallback className="bg-brand  text-xs font-bold">
+                    <AvatarFallback className="bg-brand  text-xs font-bold text-sidebar-accent-foreground">
                       {c.name[0]}
                     </AvatarFallback>
                   </Avatar>

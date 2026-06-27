@@ -3,9 +3,10 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { FileText, Pencil, ChevronRight, Search, ArrowLeft } from "lucide-react";
+import { FileText, Pencil, ChevronRight, Search, ArrowLeft, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-
+import { simulateCreateJobDraft } from "@/lib/job/JobData"; // Importation de la simulation
+import { Spinner } from "../ui/spinner";
 
 interface CreateJobDialogProps {
   open: boolean;
@@ -14,7 +15,6 @@ interface CreateJobDialogProps {
 
 type Step = "CHOOSE_METHOD" | "CHOOSE_TEMPLATE";
 
-// Données d'exemple adaptées en français
 const TEMPLATES = [
   { id: "1", title: "Spécialiste Marketing (Exemple)", location: "Amsterdam" },
   { id: "2", title: "Recruteur (Exemple)", location: "Amsterdam" },
@@ -25,8 +25,9 @@ export function CreateJobDialog({ open, onOpenChange }: CreateJobDialogProps) {
   const [step, setStep] = useState<Step>("CHOOSE_METHOD");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTemplateId, setSelectedTemplateId] = useState<string | null>(null);
+  const [isPending, setIsPending] = useState(false); // État de chargement global de la modale
 
-  const router=useRouter();
+  const router = useRouter();
 
   // Réinitialiser l'état quand on ferme la modale
   useEffect(() => {
@@ -35,16 +36,36 @@ export function CreateJobDialog({ open, onOpenChange }: CreateJobDialogProps) {
         setStep("CHOOSE_METHOD");
         setSearchQuery("");
         setSelectedTemplateId(null);
-      }, 200); // Petit délai pour attendre la fin de l'animation de fermeture
+        setIsPending(false);
+      }, 200);
     }
   }, [open]);
+
+  // Fonction unique pour gérer la création (Vierge ou Template)
+  const handleCreateJob = async (templateId?: string | null) => {
+    setIsPending(true);
+    try {
+      // 1. Appel du mock (qui sera remplacé plus tard par votre API .NET)
+      // On pourrait passer le templateId pour cloner les données côté backend
+      const newJobId = await simulateCreateJobDraft(); 
+      
+      // 2. Fermer la modale
+      onOpenChange(false);
+      
+      // 3. Rediriger directement vers la page d'édition
+      router.push(`/jobs/${newJobId}/edit`);
+    } catch (error) {
+      console.error("Erreur lors de la création du job :", error);
+      setIsPending(false);
+    }
+  };
 
   const filteredTemplates = TEMPLATES.filter((t) =>
     t.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={isPending ? () => {} : onOpenChange}>
       <DialogContent className="sm:max-w-[550px] bg-card p-0 gap-0 overflow-hidden border-border shadow-2xl">
         
         {/* ÉTAPE 1 : Choix de la méthode */}
@@ -57,12 +78,15 @@ export function CreateJobDialog({ open, onOpenChange }: CreateJobDialogProps) {
               </DialogDescription>
             </DialogHeader>
             <div className="p-6 pt-0 space-y-3">
+              
+              {/* Option : À partir d'un modèle */}
               <button 
                 onClick={() => setStep("CHOOSE_TEMPLATE")}
-                className="w-full flex items-center text-left p-4 rounded-xl border border-border bg-background  hover:bg-brand transition-all group"
+                disabled={isPending}
+                className="w-full flex items-center text-left p-4 rounded-xl border border-border bg-background hover:bg-brand transition-all group disabled:opacity-50 disabled:pointer-events-none"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted group-hover:bg-brand/10 transition-colors mr-4">
-                  <FileText className="h-5 w-5 text-icon  transition-colors" />
+                  <FileText className="h-5 w-5 text-icon transition-colors" />
                 </div>
                 <div className="flex-1 space-y-1">
                   <h4 className="font-semibold text-sm text-foreground">À partir d'un modèle</h4>
@@ -73,21 +97,30 @@ export function CreateJobDialog({ open, onOpenChange }: CreateJobDialogProps) {
                 <ChevronRight className="h-5 w-5 text-icon opacity-50 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
               </button>
 
+              {/* Option : Job Vierge (Avec gestion du chargement intégré) */}
               <button 
-                onClick={() => {
-                  console.log("Créer un job vierge");
-                  onOpenChange(false);
-                }}
-                className="w-full flex items-center text-left p-4 rounded-xl border border-border bg-background  hover:bg-brand transition-all group"
+                onClick={() => handleCreateJob(null)}
+                disabled={isPending}
+                className="w-full flex items-center text-left p-4 rounded-xl border border-border bg-background hover:bg-brand transition-all group relative disabled:opacity-70"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted group-hover:bg-brand/10 transition-colors mr-4">
-                  <Pencil className="h-5 w-5 text-icon  transition-colors" />
+                  {isPending ? (
+                    <Loader2 className="h-5 w-5 text-icon animate-spin" />
+                  ) : (
+                    <Pencil className="h-5 w-5 text-icon transition-colors" />
+                  )}
                 </div>
                 <div className="flex-1 space-y-1">
-                  <h4 className="font-semibold text-sm text-foreground">Job vierge</h4>
-                  <p className="text-xs text-muted-foreground">Commencez à partir de zéro.</p>
+                  <h4 className="font-semibold text-sm text-foreground">
+                    {isPending ? "Initialisation du brouillon..." : "Job vierge"}
+                  </h4>
+                  <p className="text-xs text-muted-foreground">
+                    {isPending ? "Veuillez patienter..." : "Commencez à partir de zéro."}
+                  </p>
                 </div>
-                <ChevronRight className="h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:text-brand transition-all group-hover:translate-x-1" />
+                {!isPending && (
+                  <ChevronRight className="h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:text-brand transition-all group-hover:translate-x-1" />
+                )}
               </button>
             </div>
           </>
@@ -111,6 +144,7 @@ export function CreateJobDialog({ open, onOpenChange }: CreateJobDialogProps) {
                   className="pl-9 bg-background"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  disabled={isPending}
                 />
               </div>
             </div>
@@ -131,14 +165,15 @@ export function CreateJobDialog({ open, onOpenChange }: CreateJobDialogProps) {
                 return (
                   <div
                     key={template.id}
-                    onClick={() => setSelectedTemplateId(template.id)}
-                    className={`flex items-start p-4 rounded-xl border cursor-pointer transition-all ${
+                    onClick={() => !isPending && setSelectedTemplateId(template.id)}
+                    className={`flex items-start p-4 rounded-xl border transition-all ${
+                      isPending ? "pointer-events-none opacity-50" : "cursor-pointer"
+                    } ${
                       isSelected 
                         ? "border-brand bg-brand" 
                         : "border-border bg-background hover:bg-brand"
                     }`}
                   >
-                    {/* Faux bouton radio pour correspondre au design */}
                     <div className="mt-0.5 mr-3 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-primary">
                       {isSelected && <div className="h-2 w-2 rounded-full bg-icon" />}
                     </div>
@@ -157,28 +192,30 @@ export function CreateJobDialog({ open, onOpenChange }: CreateJobDialogProps) {
                 variant="ghost" 
                 size="sm" 
                 onClick={() => setStep("CHOOSE_METHOD")}
+                disabled={isPending}
                 className="text-muted-foreground hover:bg-brand!"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" /> Retour
               </Button>
               
               <div className="flex gap-2">
-                <Button variant="ghost" size="sm" onClick={() => onOpenChange(false)}>
+                <Button variant="ghost" size="sm" onClick={() => onOpenChange(false)} disabled={isPending}>
                   Annuler
                 </Button>
                 <Button 
                   size="sm" 
-                  className="bg-brand text-brand-foreground hover:bg-brand/90"
-                  disabled={!selectedTemplateId}
-                  onClick={() => {
-                    if (selectedTemplateId) {
-                            onOpenChange(false);
-                            // Redirection avec le template en query param
-                            router.push(`/jobs/create?templateId=${selectedTemplateId}`);
-                        }}
-                    }
+                  className="bg-brand text-brand-foreground hover:bg-brand/90 min-w-[100px]"
+                  disabled={!selectedTemplateId || isPending}
+                  onClick={() => handleCreateJob(selectedTemplateId)}
                 >
-                  Continuer
+                  {isPending ? (
+                    <>
+                       <Spinner data-icon="inline-start" />
+                      Création...
+                    </>
+                  ) : (
+                    "Continuer"
+                  )}
                 </Button>
               </div>
             </div>

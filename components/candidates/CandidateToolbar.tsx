@@ -122,7 +122,7 @@ export function CandidateToolbar({
         <div className="flex items-center gap-2">
           <Button
             size="sm"
-            className="h-8 bg-brand hover:bg-brand/90 text-black dark:text-white gap-1.5 text-xs font-medium rounded-md px-3"
+            className="h-8 bg-brand hover:bg-brand/90 dark:text-white gap-1.5 text-xs font-medium rounded-md px-3"
           >
             <Plus className="h-3.5 w-3.5" />
             Ajouter des candidats

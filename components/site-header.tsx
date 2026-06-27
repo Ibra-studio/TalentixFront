@@ -1,6 +1,6 @@
 "use client"
 
-import { Bell, Briefcase, ChevronRight, HelpCircle, LayoutSidebar, LogOut, Moon, Plus, Settings, Star, Upload, User, UserPlus, Users, Activity, AlertTriangle } from "lucide-react"
+import { Bell, Briefcase, ChevronRight, HelpCircle, LogOut, Moon, Plus, Settings, Star, Upload, User, UserPlus, Users, Activity, AlertTriangle } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 

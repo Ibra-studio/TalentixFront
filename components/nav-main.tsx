@@ -56,7 +56,7 @@ export function NavMain({
                     "data-[active=true]:focus:bg-brand "
                   )}
                 >
-                  <Link href={item.url}>
+                  <Link href={item.url} >
                     {item.icon}
                     <span>{item.title}</span>
                   </Link>

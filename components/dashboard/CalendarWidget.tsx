@@ -32,7 +32,7 @@ export function CalendarWidget() {
   return (
     <div className="space-y-4">
       {/* 1. Bannière d'état de synchronisation (Optimisée couleur Brand Talentix) */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 rounded-xl border border-brand/40 bg-brand text-brand-foreground">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 rounded-xl border border-brand/40 bg-brand text-sidebar-accent-foreground">
         <div className="flex gap-3">
           
           <div>
@@ -160,7 +160,7 @@ export function CalendarWidget() {
             <Button variant="outline" size="sm" className="w-full text-xs h-9 bg-card">
               Ouvrir le calendrier complet
             </Button>
-            <Button size="sm" className="w-full text-xs h-9 bg-brand text-brand-foreground hover:bg-brand/90 gap-1.5 font-semibold">
+            <Button size="sm" className="w-full text-xs h-9 bg-brand text-sidebar-accent-foreground hover:bg-brand/90 gap-1.5 font-semibold">
               <Plus className="h-4 w-4" /> Planifier un événement
             </Button>
           </div>
