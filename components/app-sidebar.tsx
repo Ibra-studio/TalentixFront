@@ -43,7 +43,7 @@ const data = {
     },
     {
       title: "Jobs",
-      url: "#",
+      url: "/jobs",
       icon: (
         <BriefcaseBusiness
         />

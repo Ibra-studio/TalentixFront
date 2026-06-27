@@ -24,6 +24,8 @@
     --border: oklch(0.92 0.003 70);
     --input: oklch(0.92 0.003 70);
     --ring: oklch(0.33 0.003 70);
+    --icon-color: oklch(0.40 0.15 185);
+    
     
     /* CONFIGURATION SIDEBAR CLAIRE */
     --sidebar: oklch(0.985 0.003 70);
@@ -39,6 +41,10 @@
     --radius: 0.75rem;
     --guide: oklch(0.64 0.22 36);
     --guide-foreground: oklch(0.99 0.003 70);
+
+   /* Filtres Sidebar */
+    --filter-sidebar-bg: oklch(0.9649 0.011 63.36);
+
 
     /* --- NOUVELLE COULEUR MARQUE TALENTIX (#CEF4F0) --- */
     --brand: oklch(0.941 0.031 184.84);
@@ -64,6 +70,7 @@
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 12%);
     --ring: oklch(0.65 0.002 70);
+    --icon-color: oklch(0.85 0.12 185);
     
     /* CONFIGURATION SIDEBAR SOMBRE */
     --sidebar: oklch(0.16 0.003 70);
@@ -78,6 +85,9 @@
     --helper-accent: oklch(0.9053 0.0451 243.18);
     --guide: oklch(0.66 0.20 36);
     --guide-foreground: oklch(0.99 0.002 70);
+
+    /* Filtres Sidebar */
+    --filter-sidebar-bg: oklch(0.2123 0.0016 197.04);
 
     /* Adaptation de la couleur de marque pour le mode sombre */
     --brand: oklch(0.35 0.04 185);
@@ -114,7 +124,14 @@
     --color-foreground: var(--foreground);
     --color-background: var(--background);
     --radius-lg: var(--radius);
+    --color-icon:var(--icon-color);
     
+    /* Filtres Sidebar */
+    --color-filter-sidebar-bg:var(--filter-sidebar-bg);
+
+
+
+
     /* Enregistrement des utilitaires de couleur Talentix */
     --color-brand: var(--brand);
     --color-brand-foreground: var(--brand-foreground);
