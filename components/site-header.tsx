@@ -1,4 +1,4 @@
-"use client"
+
 
 import { Bell, Briefcase, ChevronRight, HelpCircle, LogOut, Moon, Plus, Settings, Star, Upload, User, UserPlus, Users, Activity, AlertTriangle } from "lucide-react"
 
@@ -12,6 +12,7 @@ import { SearchBar } from "./SearchBar"
 import { QuickActions } from "./QuickActionsBadge"
 import { Sheet, SheetTrigger } from "./ui/sheet"
 import { GetStartedSheetContent } from "./GetStartedSheet"
+import { simulateGetAllJobs } from "@/lib/job/JobData"
 
 function SubscriptionBadge() {
   return (
@@ -27,7 +28,9 @@ function SubscriptionBadge() {
 }
 
 
-export function SiteHeader() {
+export async function SiteHeader() {
+
+   const jobs = await simulateGetAllJobs();
   return (
     <header className="sticky top-0 z-50 w-full flex h-(--header-height) shrink-0 items-center gap-2 border-b border-border/100 bg-background/95 backdrop-blur transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)">
       <div className="flex w-full items-center gap-2 px-4 lg:gap-2 lg:px-6">
@@ -39,7 +42,7 @@ export function SiteHeader() {
 
         {/* Center – search */}
         <div className="flex-1 flex justify-center">
-          <SearchBar />
+          <SearchBar jobs={jobs} />
         </div>
 
         {/* Right – actions */}

@@ -1,6 +1,14 @@
+"use server";
+
+
 import { Job } from "@/types/Job";
 
-export const mockJobs: Job[] = [
+const globalForJobs = global as typeof global & {
+  mockJobs: Job[];
+};
+
+if(!globalForJobs.mockJobs){
+    globalForJobs.mockJobs= [
   {
     id: "JOB-001",
     title: "Community manager (Exemple)",
@@ -18,8 +26,8 @@ export const mockJobs: Job[] = [
     requirements: "<p>Expérience de 2 ans minimum en gestion de communauté...</p>",
     jobHighlights: "Équipe jeune, locaux en plein centre-ville",
     employmentDetails: {
-      type: "CDI",
-      category: "Marketing & Communication",
+      type: "CONTRACT",
+      category: "Marketing",
       requiredEducation: "Bac+3 / Licence",
       requiredExperience: "Confirmé (2-5 ans)",
       hoursPerWeekMin: 40,
@@ -47,8 +55,8 @@ export const mockJobs: Job[] = [
     requirements: "<p>Master en Ressources Humaines ou équivalent...</p>",
     jobHighlights: "Flexibilité horaire, couverture médicale premium",
     employmentDetails: {
-      type: "CDI",
-      category: "Ressources Humaines",
+      type: "FULL_TIME",
+      category: "RH",
       requiredEducation: "Bac+5 / Master",
       requiredExperience: "Senior (+5 ans)",
       hoursPerWeekMin: 40,
@@ -60,6 +68,12 @@ export const mockJobs: Job[] = [
     workflowStages: ["Sélection", "Entretien RH", "Entretien Direction", "Engagé"]
   }
 ];
+}
+
+const mockJobs=globalForJobs.mockJobs
+
+
+
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -82,15 +96,15 @@ export async function simulateCreateJobDraft(): Promise<string> {
     candidatesCount: 0,
     dateCreated: localDateStr, // Date locale dynamique
     isFollow: false,
-    tags: [],
+    tags: ["Exemple",""],
     limitOpenings: false,
     maxOpenings: null,
     description: "",
     requirements: "",
     jobHighlights: "",
     employmentDetails: {
-      type: "Full-time, Permanent",
-      category: "",
+      type: "FULL_TIME",
+      category: "Tech",
       requiredEducation: "",
       requiredExperience: "",
       hoursPerWeekMin: 40,
@@ -113,5 +127,12 @@ export async function simulateCreateJobDraft(): Promise<string> {
 // Simuler le GET : Récupérer un job par son ID
 export async function simulateGetJobById(id: string): Promise<Job | undefined> {
   await delay(800); 
+  console.log("Recherche de l'ID:", id); // AJOUTE CECI
+  console.log("Dans le tableau:", mockJobs.map(j => j.id)); // AJOUTE CECI
   return mockJobs.find((job) => job.id === id);
+}
+export async function simulateGetAllJobs(): Promise<Job[]> {
+  await delay(500);
+  
+  return mockJobs;
 }

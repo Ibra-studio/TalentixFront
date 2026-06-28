@@ -83,35 +83,35 @@ export function CreateJobDialog({ open, onOpenChange }: CreateJobDialogProps) {
               <button 
                 onClick={() => setStep("CHOOSE_TEMPLATE")}
                 disabled={isPending}
-                className="w-full flex items-center text-left p-4 rounded-xl border border-border bg-background hover:bg-brand transition-all group disabled:opacity-50 disabled:pointer-events-none"
+                className="w-full flex items-center text-left p-4 rounded-xl border border-border bg-background hover:bg-brand hover:text-white transition-all group disabled:opacity-50 disabled:pointer-events-none"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted group-hover:bg-brand/10 transition-colors mr-4">
-                  <FileText className="h-5 w-5 text-icon transition-colors" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted group-hover:bg-brand/10 group-hover:text-white text-icon transition-colors mr-4">
+                  <FileText className="h-5 w-5  transition-colors" />
                 </div>
                 <div className="flex-1 space-y-1">
-                  <h4 className="font-semibold text-sm text-foreground">À partir d'un modèle</h4>
+                  <h4 className="font-semibold text-sm ">À partir d'un modèle</h4>
                   <p className="text-xs text-muted-foreground">
                     Utilisez un modèle comme point de départ. Personnalisez-le selon vos besoins.
                   </p>
                 </div>
-                <ChevronRight className="h-5 w-5 text-icon opacity-50 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
+                <ChevronRight className="h-5 w-5 text-icon group-hover:text-white   opacity-50 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
               </button>
 
               {/* Option : Job Vierge (Avec gestion du chargement intégré) */}
               <button 
                 onClick={() => handleCreateJob(null)}
                 disabled={isPending}
-                className="w-full flex items-center text-left p-4 rounded-xl border border-border bg-background hover:bg-brand transition-all group relative disabled:opacity-70"
+                className="w-full flex items-center text-left p-4 rounded-xl border border-border bg-background hover:bg-brand hover:text-white transition-all group relative disabled:opacity-70"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted group-hover:bg-brand/10 transition-colors mr-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted group-hover:bg-brand/10 group-hover:text-white text-icon transition-colors mr-4">
                   {isPending ? (
-                    <Loader2 className="h-5 w-5 text-icon animate-spin" />
+                    <Loader2 className="h-5 w-5 animate-spin" />
                   ) : (
-                    <Pencil className="h-5 w-5 text-icon transition-colors" />
+                    <Pencil className="h-5 w-5  transition-colors" />
                   )}
                 </div>
                 <div className="flex-1 space-y-1">
-                  <h4 className="font-semibold text-sm text-foreground">
+                  <h4 className="font-semibold text-sm ">
                     {isPending ? "Initialisation du brouillon..." : "Job vierge"}
                   </h4>
                   <p className="text-xs text-muted-foreground">
@@ -170,15 +170,15 @@ export function CreateJobDialog({ open, onOpenChange }: CreateJobDialogProps) {
                       isPending ? "pointer-events-none opacity-50" : "cursor-pointer"
                     } ${
                       isSelected 
-                        ? "border-brand bg-brand" 
-                        : "border-border bg-background hover:bg-brand"
+                        ? "border-brand bg-brand text-white " 
+                        : "border-border bg-background hover:bg-brand hover:text-white"
                     }`}
                   >
                     <div className="mt-0.5 mr-3 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-primary">
-                      {isSelected && <div className="h-2 w-2 rounded-full bg-icon" />}
+                      {isSelected && <div className="h-2 w-2 rounded-full bg-icon!" />}
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-foreground">{template.title}</h4>
+                      <h4 className="text-sm font-semibold ">{template.title}</h4>
                       <p className="text-xs text-muted-foreground mt-0.5">{template.location}</p>
                     </div>
                   </div>

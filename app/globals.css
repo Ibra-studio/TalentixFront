@@ -24,7 +24,7 @@
     --border: oklch(0.92 0.003 70);
     --input: oklch(0.92 0.003 70);
     --ring: oklch(0.33 0.003 70);
-    --icon-color: oklch(0.40 0.15 185);
+    --icon-color:oklch(0.40 0.15 185);
     
     
     /* CONFIGURATION SIDEBAR CLAIRE */
@@ -125,6 +125,7 @@
     --color-background: var(--background);
     --radius-lg: var(--radius);
     --color-icon:var(--icon-color);
+    --border-color-icon: var(--icon-color);
     
     /* Filtres Sidebar */
     --color-filter-sidebar-bg:var(--filter-sidebar-bg);

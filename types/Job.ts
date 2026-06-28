@@ -5,9 +5,28 @@ export interface SalaryRange {
   currency: string; // "MAD", "EUR", "XOF", etc.
 }
 
+export type EmploymentType = "FULL_TIME" | "PART_TIME" | "CONTRACT" | "INTERNSHIP" | "FREELANCE";
+export type EmploymentCategory = "RH" | "Marketing" | "Tech" | "Commercial" | "Finance";
+
+
+export const EmploymentTypeLabels: Record<EmploymentType, string> = {
+  FULL_TIME: "Temps plein, CDI",
+  PART_TIME: "Temps partiel",
+  CONTRACT: "CDD",
+  INTERNSHIP: "Stage",
+  FREELANCE: "Freelance / Consultant",
+};
+export const EmploymentCategoryLabels: Record<EmploymentCategory, string> = {
+  RH: "Recrutement & RH",
+  Marketing: "Marketing & Communication",
+  Tech: "Ingénierie & Tech",
+  Commercial: "Vente & Commercial",
+  Finance: "Administration & Finance",
+};
+
 export interface EmploymentDetails {
-  type: string; // "Full-time", "Part-time", etc.
-  category: string;
+  type: EmploymentType; // "Full-time", "Part-time", etc.
+  category: EmploymentCategory;
   requiredEducation: string;
   requiredExperience: string;
   hoursPerWeekMin: number;

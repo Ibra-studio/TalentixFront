@@ -23,7 +23,7 @@ export function JobFavorites() {
         {favorites.map((item, idx) => (
           <div
             key={idx}
-            className="flex items-center justify-between px-2 py-1.5 text-sm rounded-md hover:bg-brand! cursor-pointer text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center justify-between px-2 py-1.5 text-sm rounded-md hover:bg-brand! cursor-pointer text-muted-foreground hover:text-white transition-colors"
           >
             <span className="flex items-center gap-2">
               {item.icon}

@@ -75,7 +75,7 @@ export default function JobHeader({ activeFilterName = "All" }: JobHeaderProps) 
                 <p className="text-sm">
                   <span className="font-medium">5 slots</span> • 2 in use, 3 available
                 </p>
-                <Button className="w-full bg-brand text-brand-foreground hover:bg-brand/90">
+                <Button className="w-full bg-brand  hover:bg-brand/90">
                   Upgrade plan
                 </Button>
               </div>
@@ -86,10 +86,10 @@ export default function JobHeader({ activeFilterName = "All" }: JobHeaderProps) 
         {/* Bouton + Modale : Ajouter un job (Dialog) */}
        <Button 
           onClick={() => setIsNewJobModalOpen(true)}
-          className="h-9 bg-brand text-brand-foreground hover:bg-brand/90 gap-2 px-4"
+          className="h-9 bg-brand text-white hover:bg-brand/90 gap-2 px-4"
         >
           <Plus className="h-4 w-4" />
-          Ajourer un job
+          Ajouter un job
         </Button>
         
         {/* 3. La modale externalisée */}

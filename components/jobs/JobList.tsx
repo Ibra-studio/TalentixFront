@@ -12,6 +12,7 @@ import {
   Bookmark 
 } from "lucide-react";
 import { Job } from "@/types/Job";
+import Link from "next/link";
 
 interface JobListProps {
   jobs: Job[];
@@ -55,7 +56,10 @@ export function JobList({ jobs, onToggleFollow }: JobListProps) {
                 <Megaphone className="w-3.5 h-3.5 mr-1.5"/> Promouvoir
               </Button>
               <Button variant="ghost" size="sm" className="h-8 text-xs font-medium hover:bg-brand/10">
+              <Link href={`/jobs/${job.id}/edit`} className="flex">
+              
                 <Pencil className="w-3.5 h-3.5 mr-1.5"/> Modifier
+              </Link>
               </Button>
               <Button variant="ghost" size="icon" className="h-8 w-8">
                 <MoreHorizontal className="w-4 h-4"/>
