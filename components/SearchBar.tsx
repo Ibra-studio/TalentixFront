@@ -49,7 +49,7 @@ export function SearchBar({jobs}:{jobs:Job[]}) {
         onClick={() => setOpen(true)}
         className={cn(
           "flex items-center gap-2 h-8 w-full max-w-sm",
-          "rounded-lg border border-border bg-muted/50",
+          "rounded-lg border border-foreground/20  bg-muted/50",
           "px-3 text-sm text-muted-foreground",
           "hover:bg-muted transition-colors",
         )}

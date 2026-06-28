@@ -2,8 +2,10 @@
 
 import React, { useState } from "react";
 import { RichTextEditor } from "@/components/ui/rich-text-editor";
+import { CircleHelp } from "lucide-react";
+import { Job } from "@/types/Job";
 
-export function AboutTheRoleSection() {
+export function AboutTheRoleSection({job}:{job:Job}) {
   // Vos états locaux (qui seront ensuite soumis à votre API .NET)
   const [description, setDescription] = useState("<p>Nous recherchons un professionnel...</p>");
   const [requirements, setRequirements] = useState("");
@@ -37,10 +39,19 @@ export function AboutTheRoleSection() {
 
         {/* Textarea classique pour le Job Highlight */}
         <div className="space-y-2">
-          <label className="text-sm font-semibold flex items-center gap-1 text-foreground">
-            Job highlight 
-            <span className="text-muted-foreground text-xs cursor-help border border-border rounded-full w-4 h-4 flex items-center justify-center">?</span>
-          </label>
+          
+            <div className="flex items-center gap-2">
+                        <label className="text-sm font-semibold flex items-center gap-1 text-foreground">
+            Job highlight  </label>
+                        {/* Tooltip via Tailwind CSS pur */}
+                        <div className="relative group flex items-center">
+                          <CircleHelp className="w-4 h-4 text-muted-foreground cursor-help" />
+                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-65 p-2 bg-popover text-popover-foreground text-xs rounded-md shadow-md border border-border z-10 text-center">
+                            Un résumé rapide en quelques points clés (avantages, technos, faits marquants) affiché en haut de l'offre pour donner envie aux candidats de lire la suite de votre annonce
+                          </div>
+                        </div>
+                      </div>
+         
           <textarea 
             className="w-full border border-border rounded-xl p-4 min-h-[100px] bg-background focus:outline-none focus:ring-1 focus:ring-ring focus:border-ring text-sm resize-none transition-all"
             placeholder="Add highlights..."

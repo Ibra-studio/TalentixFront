@@ -1,6 +1,5 @@
 "use server";
 
-
 import { Job } from "@/types/Job";
 
 const globalForJobs = global as typeof global & {
@@ -14,26 +13,26 @@ if(!globalForJobs.mockJobs){
     title: "Community manager (Exemple)",
     department: "Marketing",
     location: "Casablanca",
-    workModel: "Présentiel",
-    status: "Publié",
+    workModel: "ON_SITE",
+    status: "PUBLISHED",
     candidatesCount: 150,
     dateCreated: "2026-06-20",
     isFollow: false,
     tags: ["Marketing", "Social Media"],
-    limitOpenings: false,
-    maxOpenings: null,
+    limitOpenings: true,
+    maxOpenings: 300,
     description: "<p>Nous recherchons un Community Manager talentueux...</p>",
     requirements: "<p>Expérience de 2 ans minimum en gestion de communauté...</p>",
     jobHighlights: "Équipe jeune, locaux en plein centre-ville",
     employmentDetails: {
       type: "CONTRACT",
       category: "Marketing",
-      requiredEducation: "Bac+3 / Licence",
-      requiredExperience: "Confirmé (2-5 ans)",
+      requiredEducation: "BAC_3",
+      requiredExperience: "INTERMEDIATE",
       hoursPerWeekMin: 40,
       hoursPerWeekMax: 40
     },
-    salary: { min: 7000, max: 10000, period: "Mensuel", currency: "MAD" },
+    salary: { min: 7000, max: 10000, period: "MONTHLY", currency: "MAD" },
     applicationForm: [],
     teamIds: ["user-1"],
     workflowStages: ["À trier", "Entretien Téléphonique", "Test Technique", "Offre"]
@@ -43,8 +42,8 @@ if(!globalForJobs.mockJobs){
     title: "Responsable RH (Exemple)",
     department: "RH",
     location: "Casablanca",
-    workModel: "Hybride",
-    status: "Publié",
+    workModel: "HYBRID",
+    status: "PUBLISHED",
     candidatesCount: 16,
     dateCreated: "2026-06-22",
     isFollow: true,
@@ -57,12 +56,12 @@ if(!globalForJobs.mockJobs){
     employmentDetails: {
       type: "FULL_TIME",
       category: "RH",
-      requiredEducation: "Bac+5 / Master",
-      requiredExperience: "Senior (+5 ans)",
+      requiredEducation: "BAC_5",
+      requiredExperience: "SENIOR",
       hoursPerWeekMin: 40,
       hoursPerWeekMax: 40
     },
-    salary: { min: 15000, max: 20000, period: "Mensuel", currency: "MAD" },
+    salary: { min: 150000, max: 200000, period: "MONTHLY", currency: "XOF" },
     applicationForm: [],
     teamIds: ["user-1", "user-2"],
     workflowStages: ["Sélection", "Entretien RH", "Entretien Direction", "Engagé"]
@@ -70,31 +69,26 @@ if(!globalForJobs.mockJobs){
 ];
 }
 
-const mockJobs=globalForJobs.mockJobs
-
-
-
+const mockJobs = globalForJobs.mockJobs;
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// Simuler le POST : Création d'un brouillon avec Initialisation complète
 export async function simulateCreateJobDraft(): Promise<string> {
   await delay(800); 
   const newId = `JOB-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
   
-  // Génération de la date du jour locale au format YYYY-MM-DD
   const today = new Date();
-  const localDateStr = today.toLocaleDateString("fr-CA"); // Génère "YYYY-MM-DD" de manière fiable
+  const localDateStr = today.toLocaleDateString("fr-CA");
 
   const newDraftJob: Job = {
     id: newId,
     title: "Sans titre",
-    department: "",
+    department: "Marketing",
     location: "",
-    workModel: "Présentiel",
-    status: "Brouillon",
+    workModel: "ON_SITE",
+    status: "DRAFT",
     candidatesCount: 0,
-    dateCreated: localDateStr, // Date locale dynamique
+    dateCreated: localDateStr,
     isFollow: false,
     tags: ["Exemple",""],
     limitOpenings: false,
@@ -105,12 +99,12 @@ export async function simulateCreateJobDraft(): Promise<string> {
     employmentDetails: {
       type: "FULL_TIME",
       category: "Tech",
-      requiredEducation: "",
-      requiredExperience: "",
+      requiredEducation: "BAC_3",
+      requiredExperience: "BEGINNER",
       hoursPerWeekMin: 40,
       hoursPerWeekMax: 40
     },
-    salary: { min: null, max: null, period: "Select", currency: "Select" },
+    salary: { min: null, max: null, period: "MONTHLY", currency: "XOF" },
     applicationForm: [
       { id: "f1", label: "Nom complet", type: "text", required: true, enabled: true },
       { id: "f2", label: "Email", type: "text", required: true, enabled: true },
@@ -124,15 +118,12 @@ export async function simulateCreateJobDraft(): Promise<string> {
   return newId;
 }
 
-// Simuler le GET : Récupérer un job par son ID
 export async function simulateGetJobById(id: string): Promise<Job | undefined> {
   await delay(800); 
-  console.log("Recherche de l'ID:", id); // AJOUTE CECI
-  console.log("Dans le tableau:", mockJobs.map(j => j.id)); // AJOUTE CECI
   return mockJobs.find((job) => job.id === id);
 }
+
 export async function simulateGetAllJobs(): Promise<Job[]> {
   await delay(500);
-  
   return mockJobs;
 }
