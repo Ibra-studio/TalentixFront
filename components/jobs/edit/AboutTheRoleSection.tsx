@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import { RichTextEditor } from "@/components/ui/rich-text-editor";
 import { CircleHelp } from "lucide-react";
 import { Job } from "@/types/Job";
+import { SafeHTML } from "@/components/ui/safe-html";
 
 export function AboutTheRoleSection({job}:{job:Job}) {
   // Vos états locaux (qui seront ensuite soumis à votre API .NET)
-  const [description, setDescription] = useState("<p>Nous recherchons un professionnel...</p>");
-  const [requirements, setRequirements] = useState("");
-  const [jobHighlight, setJobHighlight] = useState("");
+  const [description, setDescription] = useState(job.description || "");
+  const [requirements, setRequirements] = useState(job.requirements || "");
+  const [jobHighlight, setJobHighlight] = useState(job.jobHighlights || "");
 
   return (
     <section className="bg-card border border-border rounded-xl p-6 space-y-6 shadow-sm">
@@ -26,6 +27,10 @@ export function AboutTheRoleSection({job}:{job:Job}) {
             value={description} 
             onChange={setDescription} 
           />
+          <div className="mt-2 p-4 bg-muted/20 rounded-lg border border-border">
+             <span className="text-[10px] font-bold uppercase text-muted-foreground">Prévisualisation :</span>
+             <SafeHTML html={description} />
+          </div>
         </div>
 
         {/* Éditeur pour les Requirements */}

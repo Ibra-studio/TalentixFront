@@ -7,6 +7,7 @@ import { JobDetailsForm } from "@/components/jobs/edit/JobDetailsForm";
 import { simulateGetJobById } from "@/lib/job/JobData";
 import { useEffect, useState } from "react";
 import { Job } from "@/types/Job";
+import { JobApplicationForm } from "./JobApplicationForm";
 
 export function JobEditor({ initialJob, jobId }: { initialJob: Job | null; jobId: string }) {
   const searchParams = useSearchParams();
@@ -19,7 +20,7 @@ export function JobEditor({ initialJob, jobId }: { initialJob: Job | null; jobId
 
   const tabs = [
     { id: "job-details", label: "Job details", icon: Pencil },
-    { id: "application", label: "Application", icon: FileText },
+    { id: "application", label: "Formulaire de candidature", icon: FileText },
     { id: "team", label: "Team", icon: Users },
     { id: "workflow", label: "Workflow", icon: GitFork },
     { id: "sharing", label: "Social sharing", icon: Share2 },
@@ -96,7 +97,8 @@ export function JobEditor({ initialJob, jobId }: { initialJob: Job | null; jobId
 
         <main className="flex-1 overflow-y-auto p-8">
           <div className="max-w-4xl mx-auto">
-            {activeTab === "job-details" && <JobDetailsForm initialJob={job} />}
+            {activeTab === "job-details" && <JobDetailsForm initialJob={job} onTabChange={handleTabChange} />}
+            {activeTab === "application" && <JobApplicationForm initialJob={job} onTabChange={handleTabChange}  />}
             {/* Autres onglets ici... */}
           </div>
         </main>

@@ -20,7 +20,13 @@ import {
   WorkModel
 } from "@/types/Job";
 
-export function JobDetailsForm({ initialJob }: { initialJob: Job }) {
+
+interface JobDetailsFormProps {
+    initialJob : Job,
+    onTabChange : (tabId: string) =>void
+}
+
+export function JobDetailsForm({ initialJob , onTabChange}: JobDetailsFormProps) {
   const router = useRouter();
   
   // Le state unique qui contrôle tout le formulaire
@@ -58,9 +64,9 @@ export function JobDetailsForm({ initialJob }: { initialJob: Job }) {
             <h2 className="text-lg font-bold text-foreground">Informations de base</h2>
             <p className="text-sm text-muted-foreground">Définissez les informations de base du poste.</p>
           </div>
-          <Button variant="ghost" size="sm" className="text-muted-foreground text-xs">
+          {/* <Button variant="ghost" size="sm" className="text-muted-foreground text-xs">
             <Pencil className="w-3 h-3 mr-2" /> Gérer les champs
-          </Button>
+          </Button> */}
         </div>
 
         <div className="grid grid-cols-2 gap-6">
@@ -140,7 +146,7 @@ export function JobDetailsForm({ initialJob }: { initialJob: Job }) {
       </section>
 
       {/* 3. À PROPOS DU POSTE */}
-      <AboutTheRoleSection />
+      <AboutTheRoleSection job={job} />
 
       {/* 4. LIEU */}
       <section className="bg-card border border-border rounded-xl p-6 space-y-4">
@@ -332,7 +338,7 @@ export function JobDetailsForm({ initialJob }: { initialJob: Job }) {
       {/* BOUTON SUIVANT */}
       <div className="flex justify-end pt-4 pb-8">
         <Button 
-          onClick={() => router.push(`?tab=application`)}
+          onClick={() => onTabChange("application")}
           className="bg-muted hover:bg-muted/80 text-foreground"
         >
           Candidature <ArrowRight className="w-4 h-4 ml-2" />
