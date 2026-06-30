@@ -8,7 +8,7 @@ import JobHeader from '@/components/jobs/JobHeader'
 import { JobToolbar } from '@/components/jobs/JobToolbar'
 
 import { JobViews } from '@/components/jobs/JobViews' // <-- Import du nouveau composant
-import { Job } from '@/types/Job';
+import { Job } from '@/types/job';
 
 export default function JobsViewWrapper({initialJobs}:{initialJobs:Job[]}) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)

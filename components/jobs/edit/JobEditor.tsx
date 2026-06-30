@@ -1,12 +1,12 @@
 "use client";
 
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { Briefcase, FileText, Users, GitFork, Share2, Globe, Eye, MoreHorizontal, ArrowLeft, Pencil } from "lucide-react";
+import { Briefcase, FileText, Users, GitFork, Share2, Globe, Eye, MoreHorizontal, ArrowLeft, Pencil, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { JobDetailsForm } from "@/components/jobs/edit/JobDetailsForm";
 import { simulateGetJobById } from "@/lib/job/JobData";
 import { useEffect, useState } from "react";
-import { Job } from "@/types/Job";
+import { Job } from "@/types/job";
 import { JobApplicationForm } from "./JobApplicationForm";
 
 export function JobEditor({ initialJob, jobId }: { initialJob: Job | null; jobId: string }) {
@@ -62,7 +62,7 @@ export function JobEditor({ initialJob, jobId }: { initialJob: Job | null; jobId
             Partager <span className="ml-1 text-[10px]">▼</span>
           </Button>
           <Button variant="ghost" size="sm" className="text-muted-foreground">
-            <Eye className="w-4 h-4 mr-2" /> Previsualiser
+            <ExternalLink className="w-4 h-4 mr-2" /> Aperçu
           </Button>
           <Button variant="outline" size="sm">Save changes</Button>
           <Button size="sm" className="bg-brand text-white ">

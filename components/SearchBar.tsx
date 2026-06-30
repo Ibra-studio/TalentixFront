@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { Users, Briefcase, BarChart, Pencil, Columns3, FileText, ChartPie, BriefcaseBusiness } from "lucide-react"
+import { Users, Briefcase, BarChart, Pencil, Columns3, FileText, ChartPie, BriefcaseBusiness, House } from "lucide-react"
 
 import {
   CommandDialog,
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/command"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Job } from "@/types/Job"
+import { Job } from "@/types/job"
 
 
 
@@ -79,6 +79,10 @@ export function SearchBar({jobs}:{jobs:Job[]}) {
           
           {/* GROUPE 1 : PAGES PRINCIPALES */}
           <CommandGroup heading="Pages">
+            <CommandItem onSelect={() => runCommand(() => router.push("/dashboard"))}>
+              <House className="mr-2 h-4 w-4" />
+              <span>Tableau de board</span>
+            </CommandItem>
             <CommandItem onSelect={() => runCommand(() => router.push("/candidates"))}>
               <Users className="mr-2 h-4 w-4" />
               <span>Candidatures</span>
@@ -102,7 +106,7 @@ export function SearchBar({jobs}:{jobs:Job[]}) {
                 key={`pipeline-${job.id}`}
                 // Le mot-clé permet de trouver cet item en tapant "pipeline nom_du_job"
                 keywords={["pipeline", "board", job.title]} 
-                onSelect={() => runCommand(() => router.push(`/jobs/${job.id}`))}
+                onSelect={() => runCommand(() => router.push(`/jobs/${job.id}/pipeline`))}
               >
                 <Columns3 className="mr-2 h-4 w-4 text-muted-foreground" />
                 <span>{job.title} - Pipeline</span>

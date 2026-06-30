@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { RichTextEditor } from "@/components/ui/rich-text-editor";
 import { CircleHelp } from "lucide-react";
-import { Job } from "@/types/Job";
+import { Job } from "@/types/job";
 import { SafeHTML } from "@/components/ui/safe-html";
 
 export function AboutTheRoleSection({job}:{job:Job}) {

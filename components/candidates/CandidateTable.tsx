@@ -12,8 +12,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Candidate } from "@/types/Candidate"
-import { getStatusStyle } from "@/lib/candidate/CandidateData"
+import { Candidate } from "@/types/candidate"
+import { getStatusStyle } from "@/lib/candidate/status-style"
 
 export interface CandidateTableProps {
   candidates: Candidate[]
@@ -84,11 +84,16 @@ export function CandidateTable({
 
                     <TableCell className="font-medium text-sm">
                       <div className="flex items-center gap-2.5">
-                        <div
-                          className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] text-white font-semibold shrink-0 ${candidate.avatarColor}`}
-                        >
-                          {candidate.initial}
-                        </div>
+                         <div className="w-8 h-8 rounded-full bg-gray-700 overflow-hidden flex-shrink-0 border border-gray-800">
+                            {candidate.avatarUrl ? (
+                              <img src={candidate.avatarUrl} alt={candidate.name} className="w-full h-full object-cover object-top" />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center text-xs font-bold bg-gradient-to-br from-gray-600 to-gray-800 text-gray-300">
+                                {candidate.initial || candidate.name.charAt(0)}
+                              </div>
+                            )}
+                          </div>
+                        
                         <span className="truncate text-foreground/90">
                           {candidate.name}{" "}
                           <span className="text-xs text-muted-foreground/40 font-normal">

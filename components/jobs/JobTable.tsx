@@ -6,7 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Trash2, Send, Archive } from "lucide-react";
-import { Job } from "@/types/Job";
+import { Job } from "@/types/job";
 
 interface JobTableProps {
   jobs: Job[];

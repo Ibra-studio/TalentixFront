@@ -36,7 +36,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 
-import { Job } from "@/types/Job";
+import { Job } from "@/types/job";
 
 // Types simulés pour l'exemple
 type FieldType = "TEXT" | "FILE" | "YES_NO" | "MULTIPLE_CHOICE";

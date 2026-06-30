@@ -1,6 +1,6 @@
 "use server";
 
-import { Job } from "@/types/Job";
+import { Job } from "@/types/job";
 
 const globalForJobs = global as typeof global & {
   mockJobs: Job[];

@@ -22,7 +22,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Job } from "@/types/Job"
+import { Job } from "@/types/job"
 import { JobTable } from "./JobTable"
 import { JobList } from "./JobList"
 import { JobBoard } from "./JobBoard"
@@ -38,7 +38,7 @@ export function JobViews({ jobs:initialJobs, view }: JobViewsProps) {
     React.useEffect(() => {
     setJobs(initialJobs);
   }, [initialJobs]);
-  
+
     const handleToggleFollow = (id: string) => {
         setJobs((prevJobs) => 
           prevJobs.map((job) => job.id === id ? {...job, isFollow:!job.isFollow}: job)

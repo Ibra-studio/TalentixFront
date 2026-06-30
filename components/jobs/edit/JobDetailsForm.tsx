@@ -18,7 +18,7 @@ import {
   SalaryPeriod, SalaryPeriodLabels,
   Currency, CurrencyLabels,
   WorkModel
-} from "@/types/Job";
+} from "@/types/job";
 
 
 interface JobDetailsFormProps {

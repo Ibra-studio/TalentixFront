@@ -4,7 +4,7 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users } from "lucide-react";
-import { Job } from "@/types/Job";
+import { Job } from "@/types/job";
 
 interface JobBoardProps {
   jobs: Job[];
