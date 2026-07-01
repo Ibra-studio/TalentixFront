@@ -180,7 +180,7 @@ export function CandidatesClient({ initialCandidates }: CandidatesClientProps) {
       <FilterSidebar
         isSidebarOpen={isSidebarOpen}
         onCloseSidebar={() => setIsSidebarOpen(false)}
-        topContent={<CandidateFavorites/>}
+        // topContent={<CandidateFavorites/>}
         filterTitle="Filtres"
       >
         <ReusableFilters

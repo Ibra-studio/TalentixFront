@@ -66,7 +66,7 @@ export function CandidateCard({ candidate, index, isSelected, onToggleSelect }: 
 
             {/* Informations principales */}
             <div className="flex-1 min-w-0">
-              <h4 className="text-sm font-medium text-primary flex items-center gap-2 truncate">
+              <h4 className="text-sm font-medium text-primary flex items-center gap-2 truncate group-hover:text-white">
                 {candidate.name}
                 {candidate.isNew && (
                   <span className="bg-brand text-primary text-[10px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">
@@ -99,12 +99,12 @@ export function CandidateCard({ candidate, index, isSelected, onToggleSelect }: 
           {/* Barre d'actions au Hover */}
           <div className="hidden group-hover:flex items-center justify-between border-t border-gray-800/60 pt-2 mt-2 animate-in fade-in duration-150">
             <div className="flex items-center gap-0.5">
-              <button className="p-1.5 rounded text-gray-400 hover:text-gray-200 hover:bg-neutral-800/50"><Calendar className="w-3.5 h-3.5" /></button>
-              <button className="p-1.5 rounded text-gray-400 hover:text-brand hover:bg-brand/10"><Bookmark className="w-3.5 h-3.5" /></button>
-              <button className="p-1.5 rounded text-gray-400 hover:text-emerald-400 hover:bg-emerald-500/10"><ThumbsUp className="w-3.5 h-3.5" /></button>
-              <button className="p-1.5 rounded text-gray-400 hover:text-blue-400 hover:bg-blue-500/10"><MessageSquare className="w-3.5 h-3.5" /></button>
+              <button className="p-1.5 rounded text-gray-400 hover:bg-brand hover:text-white cursor-pointer!" title="Planifier un entretien"><Calendar className="w-3.5 h-3.5" /></button>
+              <button className="p-1.5 rounded text-gray-400  hover:text-white cursor-pointer!" title="Suivre le candidat"><Bookmark className="w-3.5 h-3.5" /></button>
+              <button className="p-1.5 rounded text-gray-400 hover:text-white cursor-pointer!" title="Evaluer le candidat"><ThumbsUp className="w-3.5 h-3.5" /></button>
+              <button className="p-1.5 rounded text-gray-400 hover:text-white cursor-pointer!" title="Ajouter une tâche"><MessageSquare className="w-3.5 h-3.5" /></button>
             </div>
-            <button className="p-1.5 rounded text-gray-400 hover:text-red-400 hover:bg-red-500/10"><Ban className="w-3.5 h-3.5" /></button>
+            <button className="p-1.5 rounded text-gray-400 hover:text-red-400 hover:bg-red-500/10 cursor-pointer!" title="Disqualifier le candidat"><Ban className="w-3.5 h-3.5" /></button>
           </div>
         </div>
       )}

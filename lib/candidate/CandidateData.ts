@@ -79,7 +79,7 @@ if (!globalForCandidates.mockCandidates) {
       name: "Mariela Vasquez", 
       initial: "MV", 
       job: "Community manager (Exemple)", 
-      status: "Qualifié", 
+      status: "Disqualifie", 
       stage: "Test Technique", 
       alert: null, 
       score: "4", 

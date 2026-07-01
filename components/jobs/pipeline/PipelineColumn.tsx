@@ -22,12 +22,12 @@ export function PipelineColumn({ stage, index, selectedIds, onToggleSelect }: Pi
   if (isCollapsed) {
     return (
       <div 
-        className="w-12 h-full bg-[#202028] rounded-md flex flex-col items-center py-4 cursor-pointer hover:bg-[#2A2A35] transition-colors"
+        className="w-12 h-full  bg-filter-sidebar-bg rounded-md flex flex-col items-center py-4 cursor-pointer hover:bg-brand/10 transition-colors"
         onClick={() => setIsCollapsed(false)}
       >
         <ChevronRight className="w-4 h-4 text-gray-400 mb-4" />
-        <span className="writing-vertical text-gray-400 font-medium rotate-180" style={{ writingMode: 'vertical-rl' }}>
-          {stage.title} <span className="bg-[#2A2A35] px-2 py-1 rounded text-xs ml-2">{stage.candidates.length}</span>
+        <span className="writing-vertical text- text-primary  font-medium rotate-180" style={{ writingMode: 'vertical-rl' }}>
+          {stage.title} <span className="bg-brand text-white px-2 py-1 rounded text-xs ml-2">{stage.candidates.length}</span>
         </span>
       </div>
     );
@@ -54,7 +54,7 @@ export function PipelineColumn({ stage, index, selectedIds, onToggleSelect }: Pi
               stage.candidates.length > 0 ? "bg-brand" : "bg-gray-600"
             )} />
             <h3 className="font-medium text-primary text-sm">{stage.title}</h3>
-            <span className="text-xs bg-brand text-primary px-2 py-0.5 rounded ml-1">
+            <span className="text-xs bg-brand text-white px-2 py-0.5 rounded ml-1">
               {stage.candidates.length}
             </span>
             

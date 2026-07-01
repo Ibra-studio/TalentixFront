@@ -54,6 +54,7 @@ export function NavMain({
                     "data-[active=true]:bg-brand",
                     "data-[active=true]:text-white",
                     "data-[active=true]:hover:bg-brand/90 ",
+                   
                     "data-[active=true]:focus:bg-brand "
                   )}
                 >
