@@ -6,7 +6,7 @@ import { Calendar, Share, Bookmark, MoreHorizontal } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { OverviewTab } from "./tabs/OverviewTab"; // Chemin à vérifier
+import { OverviewTab } from "../tabs/OverviewTab"; // Chemin à vérifier
 import { Candidate } from "@/types/candidate"; // Chemin à vérifier
 
 // Les onglets traduits en français

@@ -22,6 +22,7 @@ import { Job } from "@/types/job"
 
 export function SearchBar({jobs}:{jobs:Job[]}) {
   const [open, setOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const router = useRouter()
 
   // Active Ctrl+K / Cmd+K
@@ -34,6 +35,11 @@ export function SearchBar({jobs}:{jobs:Job[]}) {
     }
     document.addEventListener("keydown", down)
     return () => document.removeEventListener("keydown", down)
+  }, [])
+
+  // Only render dialog after client mount to avoid SSR/client id mismatches
+  useEffect(() => {
+    setMounted(true)
   }, [])
 
   // Fonction utilitaire pour exécuter une action et fermer la modale
@@ -71,8 +77,9 @@ export function SearchBar({jobs}:{jobs:Job[]}) {
         </kbd>
       </Button>
 
-      {/* Modale de Commande */}
-      <CommandDialog open={open} onOpenChange={setOpen}>
+      {/* Modale de Commande (déférée au client pour éviter les mismatches d'hydratation) */}
+      {mounted && (
+        <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Rechercher, naviguer et plus" />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
@@ -132,7 +139,8 @@ export function SearchBar({jobs}:{jobs:Job[]}) {
           </CommandGroup>
           
         </CommandList>
-      </CommandDialog>
+        </CommandDialog>
+      )}
     </>
   )
 }

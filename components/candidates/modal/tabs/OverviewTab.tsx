@@ -28,15 +28,11 @@ export function OverviewTab({ candidate }: OverviewTabProps) {
         <AccordionTrigger className="hover:no-underline py-4 text-base font-semibold hover:cursor-pointer">
           <div className="flex w-full items-center justify-between gap-4">
             <span>Contact</span>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              className="h-8 gap-2 text-muted-foreground hover:text-foreground"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <Mail className="size-4" />
-              Send message
+            <Button asChild variant="ghost" size="sm" className="h-8 gap-2 text-muted-foreground hover:text-foreground">
+              <span onClick={(event) => event.stopPropagation()}>
+                <Mail className="size-4" />
+                Send message
+              </span>
             </Button>
           </div>
         </AccordionTrigger>
@@ -99,15 +95,11 @@ export function OverviewTab({ candidate }: OverviewTabProps) {
         <AccordionTrigger className="hover:no-underline py-4 text-base font-semibold hover:cursor-pointer">
           <div className="flex w-full items-center justify-between gap-4">
             <span>Profile fields</span>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              className="h-8 gap-1 text-muted-foreground hover:text-foreground"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <Plus className="size-4" />
-              Add profile field
+            <Button asChild variant="ghost" size="sm" className="h-8 gap-1 text-muted-foreground hover:text-foreground">
+              <span onClick={(event) => event.stopPropagation()}>
+                <Plus className="size-4" />
+                Add profile field
+              </span>
             </Button>
           </div>
         </AccordionTrigger>
@@ -122,8 +114,16 @@ export function OverviewTab({ candidate }: OverviewTabProps) {
           <div className="flex w-full items-center justify-between gap-4">
             <span>Cover letter</span>
             <div className="flex gap-2">
-              <Button type="button" variant="outline" size="icon" className="size-7" onClick={(event) => event.stopPropagation()}><Edit2 className="size-3.5" /></Button>
-              <Button type="button" variant="outline" size="icon" className="size-7" onClick={(event) => event.stopPropagation()}><MoreHorizontal className="size-3.5" /></Button>
+              <Button asChild variant="outline" size="icon" className="size-7">
+                <span onClick={(event) => event.stopPropagation()}>
+                  <Edit2 className="size-3.5" />
+                </span>
+              </Button>
+              <Button asChild variant="outline" size="icon" className="size-7">
+                <span onClick={(event) => event.stopPropagation()}>
+                  <MoreHorizontal className="size-3.5" />
+                </span>
+              </Button>
             </div>
           </div>
         </AccordionTrigger>
@@ -143,14 +143,26 @@ export function OverviewTab({ candidate }: OverviewTabProps) {
               <span>CV</span>
               {/* Le toggle File / Experience simulé */}
               <div className="flex items-center rounded-md border border-border bg-muted/30 p-0.5">
-                <button type="button" className="rounded bg-background px-3 py-1 text-xs font-semibold shadow-sm" onClick={(event) => event.stopPropagation()}>File</button>
-                <button type="button" className="rounded px-3 py-1 text-xs font-semibold text-muted-foreground transition-colors hover:text-foreground" onClick={(event) => event.stopPropagation()}>Experience</button>
+                <span role="button" tabIndex={0} onClick={(event) => event.stopPropagation()} className="rounded bg-background px-3 py-1 text-xs font-semibold shadow-sm">File</span>
+                <span role="button" tabIndex={0} onClick={(event) => event.stopPropagation()} className="rounded px-3 py-1 text-xs font-semibold text-muted-foreground transition-colors hover:text-foreground">Experience</span>
               </div>
             </div>
             <div className="flex gap-2">
-              <Button type="button" variant="outline" size="icon" className="size-7" onClick={(event) => event.stopPropagation()}><Download className="size-3.5" /></Button>
-              <Button type="button" variant="outline" size="icon" className="size-7" onClick={(event) => event.stopPropagation()}><ExternalLink className="size-3.5" /></Button>
-              <Button type="button" variant="outline" size="icon" className="size-7" onClick={(event) => event.stopPropagation()}><MoreHorizontal className="size-3.5" /></Button>
+              <Button asChild variant="outline" size="icon" className="size-7">
+                <span onClick={(event) => event.stopPropagation()}>
+                  <Download className="size-3.5" />
+                </span>
+              </Button>
+              <Button asChild variant="outline" size="icon" className="size-7">
+                <span onClick={(event) => event.stopPropagation()}>
+                  <ExternalLink className="size-3.5" />
+                </span>
+              </Button>
+              <Button asChild variant="outline" size="icon" className="size-7">
+                <span onClick={(event) => event.stopPropagation()}>
+                  <MoreHorizontal className="size-3.5" />
+                </span>
+              </Button>
             </div>
           </div>
         </AccordionTrigger>

@@ -83,10 +83,9 @@ export function CandidateTable({
                       />
                     </TableCell>
                     
-                    <Link href={`/candidates/${candidate.id}`}>
-                   
                     <TableCell className="font-medium text-sm hover:cursor-pointer">
-                      <div className="flex items-center gap-2.5">
+                      <Link href={`/candidates/${candidate.id}`} className="block">
+                        <div className="flex items-center gap-2.5">
                          <div className="w-8 h-8 rounded-full bg-gray-700 overflow-hidden flex-shrink-0 border border-gray-800">
                             {candidate.avatarUrl ? (
                               <img src={candidate.avatarUrl} alt={candidate.name} className="w-full h-full object-cover object-top" />
@@ -103,9 +102,9 @@ export function CandidateTable({
                             (Exemple)
                           </span>
                         </span>
-                      </div>
+                        </div>
+                      </Link>
                     </TableCell>
-                    </Link>
 
                     <TableCell className="text-xs text-muted-foreground whitespace-nowrap">
                       {candidate.job !== "—" ? (
