@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/table"
 import { Candidate } from "@/types/candidate"
 import { getStatusStyle } from "@/lib/candidate/status-style"
+import Link from "next/link"
 
 export interface CandidateTableProps {
   candidates: Candidate[]
@@ -81,8 +82,10 @@ export function CandidateTable({
                         className="border-muted-foreground/40 data-[state=checked]:bg-brand data-[state=checked]:border-brand"
                       />
                     </TableCell>
-
-                    <TableCell className="font-medium text-sm">
+                    
+                    <Link href={`/candidates/${candidate.id}`}>
+                   
+                    <TableCell className="font-medium text-sm hover:cursor-pointer">
                       <div className="flex items-center gap-2.5">
                          <div className="w-8 h-8 rounded-full bg-gray-700 overflow-hidden flex-shrink-0 border border-gray-800">
                             {candidate.avatarUrl ? (
@@ -94,7 +97,7 @@ export function CandidateTable({
                             )}
                           </div>
                         
-                        <span className="truncate text-foreground/90">
+                        <span className="truncate text-foreground/90 group-hover:underline">
                           {candidate.name}{" "}
                           <span className="text-xs text-muted-foreground/40 font-normal">
                             (Exemple)
@@ -102,6 +105,7 @@ export function CandidateTable({
                         </span>
                       </div>
                     </TableCell>
+                    </Link>
 
                     <TableCell className="text-xs text-muted-foreground whitespace-nowrap">
                       {candidate.job !== "—" ? (
