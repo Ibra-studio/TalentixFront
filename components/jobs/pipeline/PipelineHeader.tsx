@@ -42,11 +42,11 @@ export default function PipelineHeader({ job }: PipelineHeaderProps) {
 
         {/* Badges d'informations */}
         <div className="flex flex-wrap items-center gap-3 text-xs text-white font-medium">
-          <div className="flex items-center gap-1 bg-brand/65 px-2 py-1 rounded-md">
+          <div className="flex items-center gap-1 bg-tags px-2 py-1 rounded-md text-black">
             <MapPin className="w-3.5 h-3.5" />
             <span>{job.location}</span>
           </div>
-          <div className="flex items-center gap-1 bg-brand/65 px-2 py-1 rounded-md">
+          <div className="flex items-center gap-1 bg-tags px-2 py-1 rounded-md text-black">
             <Building2 className="w-3.5 h-3.5" />
             <span>{job.workModel}</span>
           </div>

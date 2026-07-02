@@ -1,9 +1,11 @@
 /* ============================================================
-   LANDING PAGE — Variables CSS scopées à Talentix Landing
-   Ces variables ne s'appliquent qu'aux éléments enfants de
-   .landing-root et n'écrasent pas le thème dashboard.
+   LANDING PAGE — Variables CSS pour la landing
+   Elles sont définies à la fois globalement et sur .landing-root
+   pour rester disponibles même lorsque ShadCN rend des portails
+   (comme les Select) en dehors du DOM normal.
    ============================================================ */
 
+:root,
 .landing-root {
   /* Palette principale */
   --landing-bg: #FEFBF9;           /* beige chaud du fond */

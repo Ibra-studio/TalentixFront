@@ -176,11 +176,11 @@ export function CandidatesClient({ initialCandidates }: CandidatesClientProps) {
   }
 
   return (
-    <div className="flex h-[calc(100vh-var(--header-height,3.5rem))] w-full overflow-hidden bg-background text-foreground">
+   <div className="flex h-[calc(100vh-var(--header-height,3.5rem))] w-full overflow-hidden bg-background text-foreground">
       <FilterSidebar
         isSidebarOpen={isSidebarOpen}
         onCloseSidebar={() => setIsSidebarOpen(false)}
-        // topContent={<CandidateFavorites/>}
+        topContent={<CandidateFavorites/>}
         filterTitle="Filtres"
       >
         <ReusableFilters
@@ -205,13 +205,15 @@ export function CandidatesClient({ initialCandidates }: CandidatesClientProps) {
         />
 
         <InfoBar />
-
+       <div className="grid">
         <CandidateTable
           candidates={filteredAndSortedCandidates}
           selectedIds={selectedIds}
           onToggleSelection={toggleSelection}
           onToggleAll={toggleAll}
         />
+
+       </div>
       </main>
     </div>
   )

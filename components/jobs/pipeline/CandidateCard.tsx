@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Candidate } from "@/types/candidate";
+import CandidateAvatar from "@/components/CandidateAvatar";
 
 interface CandidateCardProps {
   candidate: Candidate;
@@ -58,9 +59,10 @@ export function CandidateCard({ candidate, index, isSelected, onToggleSelect }: 
               {candidate.avatarUrl ? (
                 <img src={candidate.avatarUrl} alt={candidate.name} className="w-full h-full object-cover object-top" />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-xs font-bold bg-gradient-to-br from-gray-600 to-gray-800 text-gray-300">
-                  {candidate.initial || candidate.name.charAt(0)}
-                </div>
+                <CandidateAvatar>
+                    {candidate.initial || candidate.name.charAt(0)}
+                </CandidateAvatar>
+                
               )}
             </div>
 

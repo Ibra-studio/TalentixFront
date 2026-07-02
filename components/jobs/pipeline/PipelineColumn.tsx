@@ -5,7 +5,8 @@ import { Droppable, Draggable } from "@hello-pangea/dnd";
 import { CandidateCard } from "./CandidateCard";
 import { ChevronRight, ChevronDown, ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { PipelineStage } from "@/types/Pipeline";
+import { PipelineStage } from "@/types/pipeline";
+
 
 // Ajout des nouvelles props pour gérer l'état de sélection
 interface PipelineColumnProps {
@@ -39,7 +40,7 @@ export function PipelineColumn({ stage, index, selectedIds, onToggleSelect }: Pi
         <div
           ref={provided.innerRef}
           {...provided.draggableProps}
-          className="flex flex-col w-[300px] flex-shrink-0 bg-filter-sidebar-bg rounded-md h-full p-2"
+          className="flex flex-col w-75 shrink-0 bg-filter-sidebar-bg rounded-md h-full p-2"
         >
           {/* Header de la colonne avec logique de hover pour fermer */}
           <div 
@@ -51,7 +52,7 @@ export function PipelineColumn({ stage, index, selectedIds, onToggleSelect }: Pi
           >
             <div className={cn(
               "w-2 h-2 rounded-full",
-              stage.candidates.length > 0 ? "bg-brand" : "bg-gray-600"
+              stage.candidates.length > 0 ? "bg-tags" : "bg-gray-600"
             )} />
             <h3 className="font-medium text-primary text-sm">{stage.title}</h3>
             <span className="text-xs bg-brand text-white px-2 py-0.5 rounded ml-1">
@@ -59,7 +60,7 @@ export function PipelineColumn({ stage, index, selectedIds, onToggleSelect }: Pi
             </span>
             
             {isHoveringHeader && (
-              <ChevronLeft className="w-4 h-4 ml-auto text-gray-500 hover:text-white transition-colors" />
+              <ChevronLeft className="w-4 h-4 ml-auto text-gray-500 hover:text-primary transition-colors" />
             )}
           </div>
 
@@ -70,7 +71,7 @@ export function PipelineColumn({ stage, index, selectedIds, onToggleSelect }: Pi
                 ref={provided.innerRef}
                 {...provided.droppableProps}
                 className={cn(
-                  "flex flex-col gap-3 min-h-[150px] rounded-lg transition-colors",
+                  "flex flex-col gap-3 min-h-37.5 rounded-lg transition-colors",
                   snapshot.isDraggingOver ? "bg-brand/35" : "bg-transparent"
                 )}
               >

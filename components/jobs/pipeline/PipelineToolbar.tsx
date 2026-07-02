@@ -94,12 +94,12 @@ export function PipelineToolbar({ selectedCount, onClearSelection }: PipelineToo
           </div>
         ):(
             // LES BOUTONS QUALIFIÉ / DISQUALIFIÉ
-          <div className="flex bg-brand/50 p-1 rounded-md border border-gray-800/60">
+          <div className="flex bg-icon/70 p-1 rounded-md border border-gray-800/60">
             <Button 
               variant="ghost"
               className={cn(
                 "h-8 px-3 rounded", 
-                currentStatus === "qualifie" ? "bg-brand text-white hover:bg-brand hover:text-white" : "text-gray-400 hover:text-gray-200"
+                currentStatus === "qualifie" ? "bg-brand text-white hover:bg-brand hover:text-white" : "text-white hover:text-gray-200 hover:bg-brand"
               )}
               onClick={() => setStatus("qualifie")}
             >
@@ -114,7 +114,7 @@ export function PipelineToolbar({ selectedCount, onClearSelection }: PipelineToo
               variant="ghost"
               className={cn(
                 "h-8 px-3 rounded", 
-                currentStatus === "disqualifie" ? "bg-brand text-white hover:bg-brand hover:text-white" : "text-gray-400 hover:text-gray-200"
+                currentStatus === "disqualifie" ? "bg-brand text-white hover:bg-brand hover:text-white" : "text-white hover:text-gray-200 hover:bg-brand"
               )}
               onClick={() => setStatus("disqualifie")}
             >

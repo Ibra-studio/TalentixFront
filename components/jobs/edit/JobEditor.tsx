@@ -8,6 +8,10 @@ import { simulateGetJobById } from "@/lib/job/JobData";
 import { useEffect, useState } from "react";
 import { Job } from "@/types/job";
 import { JobApplicationForm } from "./JobApplicationForm";
+import { JobTeamForm } from "./JobTeamForm";
+import { JobWorkflowForm } from "./JobWorkflowForm";
+import { JobSharingForm } from "./JobSharingForm";
+
 
 export function JobEditor({ initialJob, jobId }: { initialJob: Job | null; jobId: string }) {
   const searchParams = useSearchParams();
@@ -16,15 +20,17 @@ export function JobEditor({ initialJob, jobId }: { initialJob: Job | null; jobId
   const activeTab = searchParams.get("tab") || "job-details";
 
   const [job, setJob] = useState<Job | null>(initialJob); // 2. State pour le job
+
+  if (!job) { return <div>Job introuvable </div> }
   
 
   const tabs = [
     { id: "job-details", label: "Job details", icon: Pencil },
     { id: "application", label: "Formulaire de candidature", icon: FileText },
     { id: "team", label: "Team", icon: Users },
-    { id: "workflow", label: "Workflow", icon: GitFork },
-    { id: "sharing", label: "Social sharing", icon: Share2 },
-    { id: "careers", label: "Careers page", icon: Globe },
+    { id: "workflow", label: "Processus de recrutement", icon: GitFork },
+    { id: "sharing", label: "Partage de l'offre", icon: Share2 },
+    { id: "careers", label: "Page carrières", icon: Globe },
   ];
 
 
@@ -64,7 +70,7 @@ export function JobEditor({ initialJob, jobId }: { initialJob: Job | null; jobId
           <Button variant="ghost" size="sm" className="text-muted-foreground">
             <ExternalLink className="w-4 h-4 mr-2" /> Aperçu
           </Button>
-          <Button variant="outline" size="sm">Save changes</Button>
+          <Button variant="outline" size="sm">Sauvegarder</Button>
           <Button size="sm" className="bg-brand text-white ">
             Publier <span className="ml-2 border-l border-white/20 pl-2">▼</span>
           </Button>
@@ -99,6 +105,9 @@ export function JobEditor({ initialJob, jobId }: { initialJob: Job | null; jobId
           <div className="max-w-4xl mx-auto">
             {activeTab === "job-details" && <JobDetailsForm initialJob={job} onTabChange={handleTabChange} />}
             {activeTab === "application" && <JobApplicationForm initialJob={job} onTabChange={handleTabChange}  />}
+            {activeTab === "team" && <JobTeamForm initialJob={job} onTabChange={handleTabChange} />}
+            {activeTab === "workflow" && <JobWorkflowForm initialJob={job} onTabChange={handleTabChange} />}
+            {activeTab === "sharing" && <JobSharingForm initialJob={job} onTabChange={handleTabChange} />}
             {/* Autres onglets ici... */}
           </div>
         </main>

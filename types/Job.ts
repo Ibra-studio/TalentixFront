@@ -65,7 +65,33 @@ export const CurrencyLabels: Record<Currency, string> = {
   XOF: "XOF (CFA)",
 };
 
+export const WorkModelLabels: Record<WorkModel, string> = {
+  ON_SITE: "Sur site",
+  REMOTE: "Télétravail",
+  HYBRID: "Hybride",
+};
+
+
+export const DEFAULT_JOB_FILTERS: JobFiltersState = {
+  search: "",
+  workType: "all",
+  location: "all",
+  department: "all",
+  contractType: "all",
+};
+
+
 // --- Interfaces ---
+
+export interface JobFiltersState {
+  search: string;
+  workType: string;
+  location: string;
+  department: string;
+  contractType: string;
+}
+
+
 
 export interface SalaryRange {
   min: number | null;
