@@ -70,7 +70,7 @@ export function CandidateTable({
                     key={candidate.id}
                     className={`border-b border-foreground/20 transition-colors group ${
                       isSelected
-                        ? "bg-brand hover:bg-brand/10 dark:bg-brand/20 dark:hover:bg-brand/30"
+                        ? "bg-brand/20 hover:bg-brand/20 dark:bg-brand dark:hover:bg-brand"
                         : "hover:bg-brand/30"
                     }`}
                   >
@@ -79,7 +79,7 @@ export function CandidateTable({
                         checked={isSelected}
                         onCheckedChange={() => onToggleSelection(candidate.id)}
                         aria-label={`Sélectionner ${candidate.name}`}
-                        className="border-muted-foreground/40 data-[state=checked]:bg-brand data-[state=checked]:border-brand"
+                        className="border-muted-foreground/40 data-[state=checked]:bg-brand data-[state=checked]:border-brand cursor-pointer"
                       />
                     </TableCell>
                     

@@ -123,7 +123,7 @@ if (!globalForCandidates.mockCandidates) {
       status: "Disqualifie", 
       stage: "Test Technique", 
       alert: null, 
-      score: "4", 
+      score: "1", 
       date: "il y a 19 jours", 
       pool: "—", 
       avatarColor: "bg-pink-600",

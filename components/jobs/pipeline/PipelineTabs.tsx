@@ -4,12 +4,12 @@ import Link from "next/link";
 import {  useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-const TABS = ["Pipeline", "Filtre", "Diffusion", "Activité", "Notes", "Fichiers", "Rapports"];
+const TABS = [ "Candidatures","Pipeline", "Diffusion", "Activité", "Notes", "Fichiers", "Rapports"];
 
 export function PipelineTabs() {
    const searchParams = useSearchParams();
-  // Par défaut, si pas de tab dans l'URL, c'est "Pipeline"
-  const currentTab = searchParams.get("tab") || "Pipeline";
+  // Par défaut, si pas de tab dans l'URL, c'est "Candidatures"
+  const currentTab = searchParams.get("tab") || "Candidatures";
 
 
   return (

@@ -1,5 +1,6 @@
 import { PipelineBoard } from "@/components/jobs/pipeline/PipelineBoard";
-import PipelineFilter from "@/components/jobs/pipeline/PipelineFilter";
+import PipelineCandidates from "@/components/jobs/pipeline/PipelineCandidates";
+import PipelineFilter from "@/components/jobs/pipeline/PipelineCandidates";
 import PipelineHeader from "@/components/jobs/pipeline/PipelineHeader";
 import { PipelineTabs } from "@/components/jobs/pipeline/PipelineTabs";
 import { simulateGetCandidatesByJobId } from "@/lib/candidate/CandidateData";
@@ -41,7 +42,7 @@ export default async function JobPipelinePage({
 
   const jobId = resolvedParams.id;
   const status = (resolvedSearchParams.status as string) || "qualifie";
-  const currentTab = (resolvedSearchParams.tab as string)?.toLowerCase() || "pipeline";
+  const currentTab = (resolvedSearchParams.tab as string)?.toLowerCase() || "candidatures";
   
   // 2. On récupère le Job EN PREMIER (une seule fois)
   const job = await simulateGetJobById(jobId);
@@ -54,8 +55,8 @@ export default async function JobPipelinePage({
         // Appel ciblé uniquement quand c'est nécessaire
         const initialStages = await getPipelineData(job, jobId, status);
         return <PipelineBoard key={status} initialStages={initialStages} jobId={jobId} />;
-      case "filtre":
-        return <PipelineFilter params={params} searchParams={searchParams}/>;
+      case "candidatures":
+        return <PipelineCandidates params={params} searchParams={searchParams}/>;
       case "diffusion":
         return <div className="w-full h-full flex items-center justify-center text-gray-400">Gérer la diffusion de l'offre ici...</div>;
       case "activité":
