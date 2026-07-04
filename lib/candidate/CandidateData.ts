@@ -19,7 +19,7 @@ if (!globalForCandidates.mockCandidates) {
       status: "Qualifié", 
       stage: "Offre",
       alert: null, 
-      score: "5", 
+      score: "2", 
       date: "il y a 15 jours", 
       pool: "—", 
       avatarColor: "bg-orange-500",

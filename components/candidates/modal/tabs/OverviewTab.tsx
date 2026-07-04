@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Candidate } from "@/types/candidate";
-import { Copy, Edit2, Mail, Download, ExternalLink, MoreHorizontal, Plus } from "lucide-react";
+import { Copy, Edit2, Mail, Download, ExternalLink, MoreHorizontal, Plus, Sparkles, Share } from "lucide-react";
 
 interface OverviewTabProps {
   candidate: Candidate;
@@ -28,12 +28,12 @@ export function OverviewTab({ candidate }: OverviewTabProps) {
         <AccordionTrigger className="hover:no-underline py-4 text-base font-semibold hover:cursor-pointer">
           <div className="flex w-full items-center justify-between gap-4">
             <span>Contact</span>
-            <Button asChild variant="ghost" size="sm" className="h-8 gap-2 text-muted-foreground hover:text-foreground">
+            {/* <Button asChild variant="ghost" size="sm" className="h-8 gap-2 text-muted-foreground hover:text-foreground">
               <span onClick={(event) => event.stopPropagation()}>
                 <Mail className="size-4" />
                 Send message
               </span>
-            </Button>
+            </Button> */}
           </div>
         </AccordionTrigger>
         <AccordionContent className="space-y-4 pb-4">
@@ -62,6 +62,52 @@ export function OverviewTab({ candidate }: OverviewTabProps) {
         </AccordionContent>
       </AccordionItem>
 
+       {/* 3. SECTION Ai summary */}
+      <AccordionItem value="ai-summary" className="rounded-lg border  border-border bg-card px-4 ">
+        <AccordionTrigger className="hover:no-underline py-4 text-base font-semibold hover:cursor-pointer">
+          <div className="flex w-full items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
+            <span>Match (IA)</span>
+            </div>
+            
+          </div>
+        </AccordionTrigger>
+        <AccordionContent className="space-y4 pb-4">
+           <div className="flex flex-col gap-3">
+              <span>Resumé</span>
+               <div className="flex justify-start gap-4">
+                 <div className="flex border border-brand">
+                    <span className="bg-brand text-white p-1.5">4</span>
+                     <span className="p-1.5">Très élévé</span>
+                 </div>
+                 <div className="flex  gap-4">
+                    <div className="flex gap-1 items-center">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                       Competences:
+                       <span>Très élévé</span>
+                    </div>
+                    <div className="flex gap-1 items-center">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                       Expérience:
+                       <span>Très élévé</span>
+                    </div>
+                    <div className="flex gap-1 items-center">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                       Education:
+                       <span>Très élévé</span>
+                    </div>
+                   
+
+                 </div>
+               </div>
+               <div>
+                  <p>Le candidat a obtenu une note importante il est un excellent candidat.</p>
+               </div>
+           </div>
+        </AccordionContent>
+      </AccordionItem>
+
       {/* 2. SECTION DETAILS */}
       <AccordionItem value="details" className="rounded-lg border-border border bg-card px-4 ">
         <AccordionTrigger className="hover:no-underline py-4 text-base font-semibold hover:cursor-pointer">
@@ -69,7 +115,7 @@ export function OverviewTab({ candidate }: OverviewTabProps) {
             <span>Details</span>
           </div>
         </AccordionTrigger>
-        <AccordionContent className="space-y-4 pb-4">
+        <AccordionContent className="space-y4 pb-4">
           <div className="grid grid-cols-[100px_1fr] items-center gap-y-4 text-sm">
              <span className="text-muted-foreground">Date created</span>
              <span>28 Apr 2026 (15 days ago) • Sourced from LinkedIn by John the Assistant</span>
@@ -90,7 +136,8 @@ export function OverviewTab({ candidate }: OverviewTabProps) {
         </AccordionContent>
       </AccordionItem>
 
-      {/* 3. SECTION PROFILE FIELDS */}
+     
+       {/* 3. SECTION Profile Fields */}
       <AccordionItem value="profile-fields" className="rounded-lg border  border-border bg-card px-4 ">
         <AccordionTrigger className="hover:no-underline py-4 text-base font-semibold hover:cursor-pointer">
           <div className="flex w-full items-center justify-between gap-4">

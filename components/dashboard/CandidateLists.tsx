@@ -39,11 +39,11 @@ export function CandidateLists() {
         <div>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-0 pb-6">
             <div className="flex items-center gap-2">
-              <CardTitle className="text-sm font-semibold text-foreground">New candidates</CardTitle>
+              <CardTitle className="text-sm font-semibold text-foreground">Nouveaux candidats</CardTitle>
               <span className="bg-muted text-muted-foreground text-[10px] px-1.5 py-0.5 rounded font-medium">2</span>
             </div>
             
-            <Select defaultValue="all">
+            {/* <Select defaultValue="all">
               <SelectTrigger className="w-[130px] h-7 text-xs bg-transparent border-border/60 text-muted-foreground rounded-md px-2.5">
                 <SelectValue placeholder="All departments" />
               </SelectTrigger>
@@ -52,7 +52,7 @@ export function CandidateLists() {
                 <SelectItem value="marketing">Marketing</SelectItem>
                 <SelectItem value="tech">Tech</SelectItem>
               </SelectContent>
-            </Select>
+            </Select> */}
           </CardHeader>
 
           <CardContent className="p-0 space-y-5">
@@ -80,7 +80,7 @@ export function CandidateLists() {
 
         <div className="pt-6">
           <button className="text-xs text-muted-foreground hover:text-foreground font-semibold transition-colors">
-            Show more
+            Montrer plus
           </button>
         </div>
       </Card>
@@ -90,20 +90,20 @@ export function CandidateLists() {
         <div>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 p-0 pb-6">
             <div className="flex items-center gap-2">
-              <CardTitle className="text-sm font-semibold text-foreground">Overdue candidates</CardTitle>
+              <CardTitle className="text-sm font-semibold text-foreground">À ne pas oublier</CardTitle>
               <span className="bg-muted text-muted-foreground text-[10px] px-1.5 py-0.5 rounded font-medium">2</span>
             </div>
             
-            <Select defaultValue="all">
+            {/* <Select defaultValue="all">
               <SelectTrigger className="w-[130px] h-7 text-xs bg-transparent border-border/60 text-muted-foreground rounded-md px-2.5">
                 <SelectValue placeholder="All departments" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All departments</SelectItem>
+                <SelectItem value="all">Tous les departements</SelectItem>
                 <SelectItem value="marketing">Marketing</SelectItem>
                 <SelectItem value="tech">Tech</SelectItem>
               </SelectContent>
-            </Select>
+            </Select> */}
           </CardHeader>
 
           <CardContent className="p-0 space-y-5">
@@ -133,7 +133,7 @@ export function CandidateLists() {
 
         <div className="pt-6">
           <button className="text-xs text-muted-foreground hover:text-foreground font-semibold transition-colors">
-            Show more
+            Montrer plus
           </button>
         </div>
       </Card>

@@ -6,6 +6,8 @@ import {
   ChevronDown, MapPin, Building2, Hash, Briefcase, 
   Share2, ExternalLink, Bookmark, Plus, Pencil 
 } from "lucide-react";
+import { HugeiconsIcon } from '@hugeicons/react'
+import { Notification03Icon } from '@hugeicons/core-free-icons'
 
 // Imports de shadcn/ui
 import {
@@ -80,6 +82,7 @@ export default function PipelineHeader({ job }: PipelineHeaderProps) {
             </div>
             <div className="flex items-center gap-1 text-muted-foreground">
               <Hash className="w-3.5 h-3.5" />
+              
               <span>2</span>
             </div>
             <div className="flex items-center gap-1 text-muted-foreground">

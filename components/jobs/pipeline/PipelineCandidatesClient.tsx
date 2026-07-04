@@ -76,16 +76,16 @@ export function PipelineCandidatesClient({ initialCandidates }: PipelineCandidat
   }, [initialCandidates, searchQuery, activeTab, sortOrder])
 
   return (
-    <div className="flex flex-col w-full bg-background mt-4 rounded-md border border-border shadow-sm">
+    <div className="flex flex-col w-full bg-background mt-4 rounded-md p-2 border border-border shadow-sm">
       
       {/* 1. Navigation des candidatures (Mini Tabs) */}
       
-       <div className="flex bg-icon/70 p-1 max-w-fit rounded-md border border-gray-800/60">
+       <div className="flex  p-1 max-w-fit rounded-md border border-foreground/20">
             <Button 
               variant="ghost"
               className={cn(
                 "h-8 px-3 rounded", 
-                activeTab === "all" ? "bg-brand text-white hover:bg-brand hover:text-white" : "text-white hover:text-gray-200 hover:bg-brand"
+                activeTab === "all" ? "bg-brand! text-white  hover:text-white" : "text-primary hover:text-gray-200 hover:bg-brand!"
               )}
               onClick={() => setActiveTab("all")}
             >
@@ -100,7 +100,7 @@ export function PipelineCandidatesClient({ initialCandidates }: PipelineCandidat
               variant="ghost"
               className={cn(
                 "h-8 px-3 rounded", 
-                activeTab === "top" ? "bg-brand text-white hover:bg-brand hover:text-white" : "text-white hover:text-gray-200 hover:bg-brand"
+                activeTab === "top" ? "bg-brand! text-white  hover:text-white" : "text-primary hover:text-gray-200 hover:bg-brand!"
               )}
               onClick={() => setActiveTab("top")}
             >

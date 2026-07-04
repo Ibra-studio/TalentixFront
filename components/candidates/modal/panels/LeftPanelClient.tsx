@@ -10,7 +10,7 @@ import { OverviewTab } from "../tabs/OverviewTab"; // Chemin à vérifier
 import { Candidate } from "@/types/candidate"; // Chemin à vérifier
 
 // Les onglets traduits en français
-const TABS = ["Aperçu", "Messages", "Événements", "Évaluation", "Fichiers", "Activité", "WhatsApp"];
+const TABS = ["Aperçu", , "Rapport de match IA" , "Événements", "Évaluation", "Activité"];
 
 interface LeftPanelClientProps {
   candidate: Candidate;
@@ -59,13 +59,13 @@ export function LeftPanelClient({ candidate }: LeftPanelClientProps) {
             <Share className="size-4" />
             Partager
           </Button>
-          <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
+          {/* <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
             <Bookmark className="size-4" />
             Suivre
-          </Button>
-          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+          </Button> */}
+          {/* <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
             <MoreHorizontal className="size-4" />
-          </Button>
+          </Button> */}
         </div>
       </div>
       {/* ---------------------- */}

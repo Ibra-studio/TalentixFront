@@ -90,7 +90,7 @@ export default function RightPanelClient({ candidate, evaluation }: RightPanelCl
         </div>
 
         {/* CARTE 2 : Tâches */}
-        <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+        {/* <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
           <div className="flex items-center gap-2 mb-4 cursor-pointer">
             <h3 className="font-semibold text-sm">Tâches</h3>
             <ChevronUp className="size-3 text-muted-foreground" />
@@ -99,7 +99,7 @@ export default function RightPanelClient({ candidate, evaluation }: RightPanelCl
             placeholder="Ajouter une tâche..." 
             className="h-10 text-sm bg-transparent border-border focus-visible:ring-1"
           />
-        </div>
+        </div> */}
 
         {/* CARTE 3 : Notes */}
         <div className="rounded-xl border border-border bg-card p-5 shadow-sm">

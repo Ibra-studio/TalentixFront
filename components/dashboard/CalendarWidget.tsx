@@ -32,7 +32,7 @@ export function CalendarWidget() {
   return (
     <div className="space-y-4">
       {/* 1. Bannière d'état de synchronisation (Optimisée couleur Brand Talentix) */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 rounded-xl border border-brand/40 bg-brand text-sidebar-accent-foreground">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 rounded-xl border border-brand/40 bg-brand text-white">
         <div className="flex gap-3">
           
           <div>

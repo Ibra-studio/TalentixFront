@@ -5,6 +5,8 @@ import {
 } from "@/components/ui/popover"
 import { Button } from "./ui/button"
 import { Activity, Bell, Settings } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Notification03Icon } from "@hugeicons/core-free-icons"
 
 export function Notifications() {
   const hasUnread = false // à brancher avec ta logique
@@ -18,7 +20,8 @@ export function Notifications() {
           className="relative h-8 w-8 rounded-lg"
           aria-label="Notifications"
         >
-          <Bell className="h-4 w-4" />
+          {/* <Bell className="h-4 w-4" /> */}
+          <HugeiconsIcon icon={Notification03Icon} size={16} color="currentColor" strokeWidth={2} />
           {hasUnread && (
             <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-destructive border-2 border-background" />
           )}

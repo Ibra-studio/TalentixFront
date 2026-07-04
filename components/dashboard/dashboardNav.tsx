@@ -7,9 +7,9 @@ const tabs = [
   { id: "overview", label: "Vue d'ensemble" },
   { id: "calendar", label: "Calendrier" },
   { id: "evaluations", label: "Évaluations" },
-  { id: "tasks", label: "Tâches" },
+  // { id: "tasks", label: "Tâches" },
   { id: "notes", label: "Notes récentes" },
-  { id: "activity", label: "Activité" },
+  // { id: "activity", label: "Activité" },
 ];
 
 interface DashboardNavProps {

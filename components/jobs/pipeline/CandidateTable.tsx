@@ -30,8 +30,9 @@ const RatingStars = ({ rating = 0 }: { rating?: number }) => {
 // Composant utilitaire pour la couleur du badge de score IA
 const getScoreBadgeColor = (scoreStr: string) => {
   const score = parseInt(scoreStr) || 0;
-  if (score >= 4) return "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400";
-  if (score >= 3) return "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400";
+  if (score >= 4) return "bg-[#10845d] text-white ";
+  if (score >= 3) return "bg-[#9cd2a8] text-black/70 ";
+  if (score >= 2) return "bg-amber-100 text-amber-700 ";
   return "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400";
 }
 
