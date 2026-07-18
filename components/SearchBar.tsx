@@ -16,11 +16,13 @@ import {
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Job } from "@/types/job"
+import { useSearch } from "@/context/SearchContext"
 
 
 
 
 export function SearchBar({jobs}:{jobs:Job[]}) {
+  
   const [open, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const router = useRouter()

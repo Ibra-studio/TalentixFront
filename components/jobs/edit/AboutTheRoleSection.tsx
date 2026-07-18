@@ -15,8 +15,8 @@ export function AboutTheRoleSection({job}:{job:Job}) {
   return (
     <section className="bg-card border border-border rounded-xl p-6 space-y-6 shadow-sm">
       <div>
-        <h2 className="text-lg font-bold text-foreground">About the role</h2>
-        <p className="text-sm text-muted-foreground">Description of the role and responsibilities.</p>
+        <h2 className="text-lg font-bold text-foreground">À propos du poste</h2>
+        <p className="text-sm text-muted-foreground">Description du poste et des responsabilités.</p>
       </div>
 
       <div className="space-y-6">

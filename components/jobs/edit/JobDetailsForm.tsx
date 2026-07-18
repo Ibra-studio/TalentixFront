@@ -69,7 +69,7 @@ export function JobDetailsForm({ initialJob , onTabChange}: JobDetailsFormProps)
           </Button> */}
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           <div className="space-y-2">
             <label className="text-sm font-semibold">Titre du poste</label>
             <Input 
@@ -79,7 +79,7 @@ export function JobDetailsForm({ initialJob , onTabChange}: JobDetailsFormProps)
               className="bg-background" 
             />
           </div>
-          <div className="space-y-2">
+          {/* <div className="space-y-2">
             <label className="text-sm font-semibold">Département</label>
             <select 
               value={job.department || ""} 
@@ -91,10 +91,10 @@ export function JobDetailsForm({ initialJob , onTabChange}: JobDetailsFormProps)
                 <option key={key} value={key}>{label}</option>
               ))}
             </select>
-          </div>
+          </div> */}
         </div>
 
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <label className="text-sm font-semibold">Tags</label>
           <div className="flex items-center gap-2">
             {job.tags.map((tag)=> (
@@ -107,7 +107,7 @@ export function JobDetailsForm({ initialJob , onTabChange}: JobDetailsFormProps)
               <Plus className="w-3 h-3" />
             </Button>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* 2. LIMITER LES OUVERTURES DE POSTE */}

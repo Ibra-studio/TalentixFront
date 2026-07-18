@@ -105,7 +105,7 @@ export default function PipelineHeader({ job }: PipelineHeaderProps) {
           </button>
 
           {/* Bouton Suivre */}
-          <button 
+          {/* <button 
             onClick={() => setIsFollowing(!isFollowing)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md transition-all duration-200 ${
               isFollowing ? 'text-brand bg-brand/10' : 'hover:bg-brand text-primary'
@@ -115,7 +115,7 @@ export default function PipelineHeader({ job }: PipelineHeaderProps) {
               className={`w-4 h-4 ${isFollowing ? 'fill-brand text-brand' : 'text-primary'}`} 
             />
             <span>Suivre</span>
-          </button>
+          </button> */}
 
           <button className="p-1.5 hover:bg-gray-800 rounded-full border border-gray-700 transition-colors">
             <Plus className="w-4 h-4" />

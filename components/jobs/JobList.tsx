@@ -10,7 +10,8 @@ import {
   Megaphone, 
   Pencil, 
   MoreHorizontal, 
-  Bookmark 
+  Bookmark, 
+  Share2
 } from "lucide-react";
 import { Job } from "@/types/job";
 import Link from "next/link";
@@ -68,16 +69,16 @@ export function JobList({ jobs, onToggleFollow }: JobListProps) {
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="h-8 text-xs font-medium hover:bg-brand/10"
+                className="h-8 text-xs font-medium hover:bg-brand! hover:text-white"
                 onClick={(e) => e.stopPropagation()}
               >
-                <Megaphone className="w-3.5 h-3.5 mr-1.5"/> Promouvoir
+                <Share2 className="w-3.5 h-3.5 mr-1.5"/> Partager
               </Button>
 
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="h-8 text-xs font-medium hover:bg-brand/10"
+                className="h-8 text-xs font-medium hover:bg-brand! hover:text-white"
                 asChild
                 onClick={(e) => e.stopPropagation()}
               >
@@ -106,7 +107,7 @@ export function JobList({ jobs, onToggleFollow }: JobListProps) {
             </div>
             
             <div className="flex items-center gap-5 text-muted-foreground font-medium text-xs">
-              <span 
+              {/* <span 
                 onClick={(e) => {
                   e.stopPropagation();
                   onToggleFollow(job.id);
@@ -115,7 +116,7 @@ export function JobList({ jobs, onToggleFollow }: JobListProps) {
               >
                 <Bookmark className={`w-3.5 h-3.5 ${job.isFollow ? "fill-brand text-brand" : ""}`}/> 
                 {job.isFollow ? "Suivi" : "Suivre"}
-              </span>
+              </span> */}
               
               <span className="flex items-center gap-1.5 text-foreground">
                 <div className={`w-2 h-2 rounded-full ${
