@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { DragDropContext, DropResult, Droppable } from "@hello-pangea/dnd";
-import { PipelineStage } from "@/types/Pipeline";
+import { PipelineStage } from "@/types/pipeline";
 import { PipelineColumn } from "./PipelineColumn";
 import { PipelineToolbar } from "./PipelineToolbar";
 

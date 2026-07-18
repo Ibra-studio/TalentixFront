@@ -5,7 +5,7 @@ import PipelineHeader from "@/components/jobs/pipeline/PipelineHeader";
 import { PipelineTabs } from "@/components/jobs/pipeline/PipelineTabs";
 import { simulateGetCandidatesByJobId } from "@/lib/candidate/CandidateData";
 import { simulateGetJobById } from "@/lib/job/JobData";
-import { PipelineStage } from "@/types/Pipeline";
+import { PipelineStage } from "@/types/pipeline";
 
 // 1. On passe l'objet `job` déjà récupéré pour éviter une double requête DB
 async function getPipelineData(job: any, jobId: string, status: string): Promise<PipelineStage[]> {

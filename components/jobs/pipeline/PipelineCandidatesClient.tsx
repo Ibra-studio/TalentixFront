@@ -53,9 +53,9 @@ export function PipelineCandidatesClient({ initialCandidates }: PipelineCandidat
   const [localMatchRange, setLocalMatchRange] = useState([matchMin, matchMax])
 
   // --- EXTRACTION DES OPTIONS DYNAMIQUES ---
-  const statuses = Array.from(new Set(initialCandidates.map(c => c.stage).filter(Boolean))).sort()
-  const locations = Array.from(new Set(initialCandidates.map(c => c.location).filter(Boolean))).sort()
-  const sources = Array.from(new Set(initialCandidates.map(c => c.source).filter(Boolean))).sort()
+  const statuses = Array.from(new Set(initialCandidates.map(c => c.stage).filter(Boolean) as string[])).sort()
+  const locations = Array.from(new Set(initialCandidates.map(c => c.location).filter(Boolean) as string[])).sort()
+  const sources = Array.from(new Set(initialCandidates.map(c => c.source).filter(Boolean) as string[])).sort()
 
   // --- FONCTION DE MISE À JOUR DE L'URL ---
   const updateURLParams = useCallback((updates: Record<string, string | null>) => {
@@ -328,8 +328,8 @@ export function PipelineCandidatesClient({ initialCandidates }: PipelineCandidat
         selectedIds={selectedIds}
         onToggleSelection={handleToggleSelection}
         onToggleAll={() => handleToggleAll(filteredAndSortedCandidates)}
-        sortDirection={sortOrder}
-        onSortMatch={handleSortByScore}
+        sortOrder={sortOrder}
+        onSortScore={handleSortByScore}
       />
     </div>
   )

@@ -19,7 +19,7 @@ export function ProfileMenu() {
       <DropdownMenuTrigger asChild>
         <Button className="relative" aria-label="Profile menu" variant={"ghost"}>
           <Avatar className="h-8 w-8 cursor-pointer">
-            <AvatarFallback className="bg-primary text-black text-xs font-semibold">
+            <AvatarFallback className="bg-primary text-white dark:text-black text-xs font-semibold">
               {user.initials}
             </AvatarFallback>
           </Avatar>
@@ -35,7 +35,7 @@ export function ProfileMenu() {
         <div className="px-3 pt-3 pb-2">
           <div className="flex items-center gap-3 mb-3">
             <Avatar className="h-10 w-10 shrink-0">
-              <AvatarFallback className="bg-[#FDF3E1] text-black text-sm font-semibold">
+              <AvatarFallback className="bg-primary text-white  dark:text-black text-sm font-semibold">
                 {user.initials}
               </AvatarFallback>
             </Avatar>

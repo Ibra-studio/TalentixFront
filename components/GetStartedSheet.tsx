@@ -421,7 +421,7 @@ export function GetStartedSheetContent({ userName = "Ibrahim" }: { userName?: st
   }
 
   return (
-    <SheetContent side="right" className="flex w-full max-w-sm flex-col gap-0 p-0 sm:max-w-sm">
+    <SheetContent side="right" className="flex w-full max-w-sm border-none flex-col gap-0 p-0 sm:max-w-sm">
 
       {/* Header aligné sur l'identité sémantique */}
       <SheetHeader className="flex-row items-center gap-3 bg-guide px-4 py-3">
@@ -435,7 +435,6 @@ export function GetStartedSheetContent({ userName = "Ibrahim" }: { userName?: st
             variant="ghost"
             className="ml-auto size-6 text-guide-foreground/70 hover:text-guide-foreground hover:bg-guide-foreground/10"
           >
-            <X className="size-3.5" />
           </Button>
         </SheetClose>
       </SheetHeader>

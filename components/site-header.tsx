@@ -21,7 +21,7 @@ function SubscriptionBadge() {
       size="sm"
       className="h-8 rounded-full gap-1.5 text-xs font-normal"
     >
-      Your trial
+      Votre essaie
       <ChevronRight className="h-3 w-3 opacity-60" />
     </Button>
   )
@@ -47,7 +47,7 @@ export async function SiteHeader() {
 
         {/* Right – actions */}
         <div className="flex items-center gap-1">
-          <QuickActions />
+          {/* <QuickActions /> */}
           <Sheet>
             <SheetTrigger asChild>
              <Button variant="ghost" size="icon" className="h-8 w-8 rounded-lg" aria-label="Help">

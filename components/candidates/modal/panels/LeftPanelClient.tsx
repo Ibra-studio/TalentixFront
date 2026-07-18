@@ -10,7 +10,7 @@ import { OverviewTab } from "../tabs/OverviewTab"; // Chemin à vérifier
 import { Candidate } from "@/types/candidate"; // Chemin à vérifier
 
 // Les onglets traduits en français
-const TABS = ["Aperçu", , "Rapport de match IA" , "Événements", "Évaluation", "Activité"];
+const TABS = ["Aperçu", "Rapport de match IA", "Événements", "Évaluation", "Activité"];
 
 interface LeftPanelClientProps {
   candidate: Candidate;

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import { useSearch } from "@/context/SearchContext"
 import { Users, Briefcase, BarChart, Pencil, Columns3, FileText, ChartPie, BriefcaseBusiness, House } from "lucide-react"
 
 import {
@@ -16,14 +17,9 @@ import {
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Job } from "@/types/job"
-import { useSearch } from "@/context/SearchContext"
-
-
-
 
 export function SearchBar({jobs}:{jobs:Job[]}) {
-  
-  const [open, setOpen] = useState(false)
+  const { open, setOpen, toggle } = useSearch()
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
 
@@ -32,12 +28,12 @@ export function SearchBar({jobs}:{jobs:Job[]}) {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
-        setOpen((prev) => !prev)
+        toggle()
       }
     }
     document.addEventListener("keydown", down)
     return () => document.removeEventListener("keydown", down)
-  }, [])
+  }, [toggle])
 
   // Only render dialog after client mount to avoid SSR/client id mismatches
   useEffect(() => {

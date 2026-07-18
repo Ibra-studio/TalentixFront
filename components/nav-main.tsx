@@ -11,6 +11,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { CirclePlusIcon } from "lucide-react"
+import { useSearch } from "@/context/SearchContext"
 
 export function NavMain({
   items,
@@ -22,6 +23,7 @@ export function NavMain({
   }[]
 }) {
   const pathname = usePathname()
+  const { toggle } = useSearch()
 
   return (
     <SidebarGroup>
@@ -30,7 +32,8 @@ export function NavMain({
           <SidebarMenuItem className="flex items-center gap-2">
             <SidebarMenuButton
               tooltip="Quick Create"
-              className="min-w-8 bg-primary text-primary-foreground duration-200 ease-linear hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
+              onClick={() => toggle()}
+              className="min-w-8 bg-primary text-primary-foreground duration-200 ease-linear hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground cursor-pointer"
             >
               <CirclePlusIcon />
               <span>Action rapide</span>
