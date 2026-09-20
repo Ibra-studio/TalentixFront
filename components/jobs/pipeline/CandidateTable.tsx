@@ -86,7 +86,7 @@ export function CandidateTable({
               
               <TableHead className="text-xs font-semibold text-foreground tracking-wide w-[150px]">Source</TableHead>
               <TableHead className="text-xs font-semibold text-foreground tracking-wide w-[150px]">Localisation</TableHead>
-              <TableHead className="text-xs font-semibold text-foreground tracking-wide w-[150px]">Statut</TableHead>
+              <TableHead className="text-xs font-semibold text-foreground tracking-wide w-[150px]">Étape</TableHead>
               <TableHead className="text-xs font-semibold text-foreground tracking-wide w-[120px]">Evaluation</TableHead>
               <TableHead className="text-xs font-semibold text-foreground tracking-wide">Postulé le</TableHead>
             </TableRow>

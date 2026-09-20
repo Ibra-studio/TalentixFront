@@ -13,14 +13,14 @@ export default function AppLayout({
   modal: React.ReactNode; // 2. Typage de la prop
 }) {
   return (
-    
-    <SearchProvider> 
-      <SidebarProvider
-        style={{
-          "--sidebar-width": "calc(var(--spacing) * 72)",
-          "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties}
-      >
+    <>
+    <SidebarProvider
+    style={{
+      "--sidebar-width": "calc(var(--spacing) * 72)",
+      "--header-height": "calc(var(--spacing) * 12)",
+    } as React.CSSProperties}
+    >
+        <SearchProvider> 
         <TooltipProvider>
           <AppSidebar variant="inset" />
         </TooltipProvider>
@@ -30,10 +30,11 @@ export default function AppLayout({
             {children}
           </main>
         </SidebarInset>
+     </SearchProvider>
       </SidebarProvider>
       
       {/* 3. Affichage du modal par-dessus le layout entier */}
       {modal}
-     </SearchProvider>
+      </>
   )
 }

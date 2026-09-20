@@ -82,6 +82,14 @@ export function CandidateToolbar({
           className="pl-9 h-9 bg-accent/20 border-border/80 rounded-md text-sm w-full focus-visible:ring-1 focus-visible:ring-brand"
         />
       </div>
+      {/* <div className="flex items-center justify-between gap-3 pt-1 border-t border-border/40">
+        <CandidateFilterPills filterGroups={filterGroups} onClearAll={onClearAllFilters} />
+
+        <div className="text-xs text-muted-foreground shrink-0 font-medium">
+          <strong className="text-foreground">{filteredCandidatesCount}</strong> sur{" "}
+          <strong className="text-foreground">{totalCandidatesCount}</strong>
+        </div>
+      </div> */}
 
       {/* Actions and sort buttons */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">

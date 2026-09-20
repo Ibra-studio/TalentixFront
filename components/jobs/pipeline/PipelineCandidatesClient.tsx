@@ -36,7 +36,7 @@ export function PipelineCandidatesClient({ initialCandidates }: PipelineCandidat
   // --- ÉTATS GÉRÉS PAR L'URL ---
   const activeTab = searchParams.get("view") || "all"
   const searchQueryURL = searchParams.get("q") || ""
-  const filterStatus = searchParams.get("status") || "all"
+  const filterStatus = searchParams.get("stage") || "all"
   const filterLocation = searchParams.get("location") || "all"
   const filterSource = searchParams.get("source") || "all"
   
@@ -148,7 +148,7 @@ export function PipelineCandidatesClient({ initialCandidates }: PipelineCandidat
   }, [initialCandidates, activeTab, searchQueryURL, filterStatus, filterLocation, filterSource, matchMin, matchMax, includeUnscored, sortOrder])
 
   // Classes partagées pour le style "pilule" (pill) des filtres
-  const triggerClass = "h-8 px-3 rounded-full border border-border bg-background text-xs font-medium text-foreground hover:bg-muted transition-colors flex items-center gap-1.5 focus:ring-0 focus:ring-offset-0"
+  const triggerClass = "h-8 px-3 rounded-full border border-border bg-background text-xs font-medium text-foreground hover:bg-muted transition-colors flex items-center gap-1.5 focus:ring-0 focus:ring-offset-0 cursor-pointer"
 
   return (
     <div className="flex flex-col w-full bg-background mt-4 rounded-md p-2 border border-border shadow-sm">
@@ -159,12 +159,12 @@ export function PipelineCandidatesClient({ initialCandidates }: PipelineCandidat
           variant="ghost"
           className={cn(
             "h-8 px-3 rounded transition-all", 
-            activeTab === "all" ? "bg-brand text-brand-foreground hover:bg-brand/90 hover:text-brand-foreground shadow-sm" : "text-foreground hover:bg-muted"
+            activeTab === "all" ? "bg-brand text-white hover:bg-brand/90!  hover:text-white  shadow-sm" : "text-white hover:bg-muted"
           )}
           onClick={() => updateURLParams({ view: "all" })}
         >
             Toutes les candidatures
-            <span className="text-[10px] bg-foreground/10 text-foreground px-1.5 py-0.5 rounded ml-2">
+            <span className="text-[10px] bg-foreground/10 text-white px-1.5 py-0.5 rounded ml-2">
               {initialCandidates.length}
             </span>
         </Button>
@@ -204,13 +204,13 @@ export function PipelineCandidatesClient({ initialCandidates }: PipelineCandidat
               </div>
               
               <div className="flex items-center gap-2">
-                <Button variant="ghost" className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-destructive hover:bg-destructive/10 rounded transition-colors">
+                <Button variant="ghost" className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-destructive hover:bg-destructive/10! rounded transition-colors">
                   <Ban className="w-4 h-4" /> Rejeter
                 </Button>
                 <Button variant="ghost" className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-foreground hover:bg-muted rounded transition-colors">
                   <Mail className="w-4 h-4" /> Email
                 </Button>
-                <Button className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-brand text-brand-foreground hover:bg-brand/90 rounded shadow-sm">
+                <Button className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-brand text-white hover:bg-brand/90 rounded shadow-sm">
                  <Plus className="w-4 h-4 mr-1" /> Ajouter à la Pipeline
                 </Button>
               </div>
@@ -232,13 +232,13 @@ export function PipelineCandidatesClient({ initialCandidates }: PipelineCandidat
         {/* 3. Filtres Dynamiques avec Shadcn */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar">
           
-          {/* Filtre: Statut */}
-          <Select value={filterStatus} onValueChange={(val) => updateURLParams({ status: val })}>
+          {/* Filtre: Étape */}
+          <Select value={filterStatus} onValueChange={(val) => updateURLParams({ stage: val })}>
             <SelectTrigger className={triggerClass}>
-              <SelectValue placeholder="Statut" />
+              <SelectValue placeholder="Étape" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">Tous les statuts</SelectItem>
+              <SelectItem value="all">Toutes les étapes</SelectItem>
               {statuses.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
             </SelectContent>
           </Select>
